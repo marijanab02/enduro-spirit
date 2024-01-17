@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija</title>
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #232323;
+        }
+
+        #logo {
+            margin-top: 25px;
+            width: 161px;
+            height: auto;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #login {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        select {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+        }
+        .input-group {
+            width: 48%;
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            font-family: sans-serif;
+            color: #4d4b4b;
+        }
+
+
+        input {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #de2c26;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 20%;
+            height: 6%;
+            margin-top: 10px;
+            box-shadow: none;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        nav
+        {
+            top: 80%;
+            width: 40%;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #de2c26;
+            font-family: sans-serif;
+        }
+        #login
+        {
+            height: auto;
+        }
+        @media (min-width: 576px) {
+            #logo
+            {
+                max-width: 100%;
+            }
+
+            #login
+            {
+                max-width: 100%;
+            }
+
+            .input-group
+            {
+                width: 48%;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            .input-group {
+                width: 100%;
+                margin-right: 10px;
+            }
+            button {
+                width: 30%;
+                max-width: none;
+                margin-top: 10px;
+                font-size: 3vw;
+            }
+        }
+
+
+        @media (min-width: 768px) {
+            #logo
+            {
+                max-width: 80%;
+            }
+
+            #login
+            {
+                max-width: 80%;
+            }
+        }
+
+
+        @media (min-width: 992px) {
+            #logo
+            {
+                max-width: 60%;
+            }
+
+            #login
+            {
+                max-width: 60%;
+            }
+        }
+
+
+        @media (min-width: 1200px) {
+            #logo
+            {
+                max-width: 50%;
+            }
+
+            #login
+            {
+                max-width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
+<div id="logo">
+    <img src="endurologo.png" style="max-width:100%; height:auto;">
+</div>
+<div id="login">
+    <div class="input-group">
+        <label for="ime">Unesite Vaše ime:</label>
+        <input type="text" id="ime" class="input" width="30%">
+    </div>
+    <div class="input-group">
+        <label for="prezime">Unesite Vaše prezime:</label>
+        <input type="text" id="prezime" class="input" width="30%">
+    </div>
+    <div class="input-group">
+        <label for="email">E-mail adresa:</label>
+        <input type="email" id="email" class="input" width="80%">
+    </div>
+    <div class="input-group">
+        <label for="adresa">Vaša adresa:</label>
+        <input type="text" id="adresa" class="input">
+    </div>
+    <div class="input-group">
+        <label for="telefon">Unesite broj telefona:</label>
+        <input type="number" id="telefon" class="input">
+    </div>
+    <div class="input-group">
+        <label for="datumRodjenja">Unesite datum rođenja:</label>
+        <input type="date" id="datumRodjenja" class="input">
+    </div>
+    <div class="input-group">
+        <label for="vozacke">Vozačke sposobnosti:</label>
+        <input type="text" id="vozacke" class="input">
+    </div>
+    <div class="input-group">
+        <label for="velicinaOdjece">Veličina odjeće:</label>
+        <select id="velicinaOdjece" class="input">
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XL">XXL</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="velicinaObuce">Veličina obuće:</label>
+        <select id="velicinaObuce" class="input">
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="40">41</option>
+            <option value="40">42</option>
+            <option value="40">43</option>
+            <option value="40">44</option>
+            <option value="40">45</option>
+            <option value="40">46</option>
+            <option value="40">47</option>
+            <option value="40">48</option>
+            <option value="40">49</option>
+            <option value="40">50</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="velicinaKacige">Veličina kacige:</label>
+        <select id="velicinaKacige" class="input">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="L">XL</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="tezina">Težina (kg):</label>
+        <input type="number" id="tezina" class="input">
+    </div>
+    <div class="input-group">
+        <label for="visina">Visina (cm):</label>
+        <input type="number" id="visina" class="input">
+    </div>
+    <div class="input-group">
+        <label for="lozinka">Lozinka:</label>
+        <input type="password" id="lozinka" class="input">
+    </div>
+    <div class="input-group">
+        <label for="potvrdaLozinke">Potvrda lozinke:</label>
+        <input type="password" id="potvrdaLozinke" class="input">
+    </div>
+    <button type="submit" style="background-color: #9c261e">Registriraj se</button>
+    <br> <nav><h5><a href="proba.html">Već imate račun? Prijavite se ovdje.</a></h5></nav>
+</div>
+</body>
+
+</html>
