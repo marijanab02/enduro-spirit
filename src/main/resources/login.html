@@ -38,13 +38,13 @@
             color: #4d4b4b;
         }
 
-
         input {
             background-color: #1a1a1a;
             color: #fff;
             border: none;
             padding: 10px;
             width: 100%;
+
         }
 
         button {
@@ -52,12 +52,43 @@
             color: #fff;
             border: none;
             padding: 10px;
-            width: 20%;
-            height: 6%;
+            width: 30%;
+            height: 20%;
             margin-top: 10px;
             box-shadow: none;
             margin-bottom: 20px;
             box-sizing: border-box;
+        }
+
+        nav {
+            top: 80%;
+            width: 30%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        #text{
+            position: absolute;
+            top: 67%;
+            width: 100%;
+            right: 5%;
+            text-align: center;
+            font-family: sans-serif;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #text1 {
+            position: absolute;
+            top: 72%;
+            width: 100%;
+            right: 4%;
+            font-family: sans-serif;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
         }
 
         #login
@@ -138,17 +169,27 @@
     <img src="endurologo.png" style="max-width:100%; height:auto;">
 </div>
 <div id="login">
-
-    <label for="email">E-mail adresa:</label>
+    <label for="email">Korisničko ime ili E-mail adresa:</label>
     <input type="email" id="email" class="input" width="80%">
-
 
     <label for="lozinka">Lozinka:</label>
     <input type="password" id="lozinka" class="input">
 
+    <nav><input type="checkbox" name= "skills" value="forever"/> Ostanite prijavljeni
+    </nav>
+    <button type="submit" style="background-color: #9c261e">Prijavi se<br></br></button>
 
-    <button type="submit" style="background-color: #9c261e">Prijavi se</button>
 </div>
+<div id="text">
+    <a href="https://www.enduro-spirit.com/login/?action=lostpassword">Zaboravili ste lozinku?</a>
+</div>
+<div id="text1">
+    <a href="https://www.enduro-spirit.com/"><-Povratak na Enduro-Spirit</a>
+</div>
+
+
+
+
 </body>
 
 </html>
