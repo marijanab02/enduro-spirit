@@ -20,7 +20,7 @@ public class Korisnik {
     String Email;
     String Adresa;
     String Telefon;
-    Date DatumRodenja;
+    String DatumRodenja;
     String VozackeSposobnosti;
     String VelicinaOdjece;
     Long VelicinaObuce;
@@ -33,7 +33,7 @@ public class Korisnik {
     public Korisnik() {
     }
 
-    public Korisnik(String ime, String prezime, String email, String adresa, String telefon, Date datumRodenja, String vozackeSposobnosti, String velicinaOdjece, Long velicinaObuce, String velicinaKacige, Long tezina, Long visina, String role, String lozinka) {
+    public Korisnik(String ime, String prezime, String email, String adresa, String telefon, String datumRodenja, String vozackeSposobnosti, String velicinaOdjece, Long velicinaObuce, String velicinaKacige, Long tezina, Long visina, String role, String lozinka) {
         Ime = ime;
         Prezime = prezime;
         Email = email;
@@ -98,11 +98,11 @@ public class Korisnik {
         Telefon = telefon;
     }
 
-    public Date getDatumRodenja() {
+    public String getDatumRodenja() {
         return DatumRodenja;
     }
 
-    public void setDatumRodenja(Date datumRodenja) {
+    public void setDatumRodenja(String datumRodenja) {
         DatumRodenja = datumRodenja;
     }
 

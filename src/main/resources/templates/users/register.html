@@ -165,71 +165,72 @@
 <div id="logo">
     <img src="endurologo.png" style="max-width:100%; height:auto;">
 </div>
-<div id="login">
+
+<form id="login" th:action="@{/users/register}" method="post" th:object="${korisnik}">
     <div class="input-group">
         <label for="ime">Unesite Vaše ime:</label>
-        <input type="text" id="ime" class="input" width="30%">
+        <input type="text" id="ime" class="input" width="30%" placeholder="Unesite ime" th:field="*{ime}"/>
     </div>
     <div class="input-group">
         <label for="prezime">Unesite Vaše prezime:</label>
-        <input type="text" id="prezime" class="input" width="30%">
+        <input type="text" id="prezime" class="input" width="30%" placeholder="Unesiet prezime" th:field="*{prezime}"/>
     </div>
     <div class="input-group">
         <label for="email">E-mail adresa:</label>
-        <input type="email" id="email" class="input" width="80%">
+        <input type="email" id="email" class="input" width="80%" placeholder="Unesite e-mail adresu" th:field="*{email}"/>
     </div>
     <div class="input-group">
         <label for="adresa">Vaša adresa:</label>
-        <input type="text" id="adresa" class="input">
+        <input type="text" id="adresa" class="input" placeholder="Unesite adresu" th:field="*{adresa}"/>
     </div>
     <div class="input-group">
         <label for="telefon">Unesite broj telefona:</label>
-        <input type="number" id="telefon" class="input">
+        <input type="number" id="telefon" class="input" placeholder="Broj telefona" th:field="*{telefon}"/>
     </div>
     <div class="input-group">
         <label for="datumRodjenja">Unesite datum rođenja:</label>
-        <input type="date" id="datumRodjenja" class="input">
+        <input type="date" id="datumRodjenja" class="input" placeholder="Datum rodenja" th:field="*{datumRodenja}"/>
     </div>
     <div class="input-group">
         <label for="vozacke">Vozačke sposobnosti:</label>
-        <input type="text" id="vozacke" class="input">
+        <input type="text" id="vozacke" class="input" placeholder="Sposobnosti" th:field="*{vozackeSposobnosti}"/>
     </div>
     <div class="input-group">
         <label for="velicinaOdjece">Veličina odjeće:</label>
-        <select id="velicinaOdjece" class="input">
+        <select id="velicinaOdjece" class="input" th:field="*{velicinaOdjece}">
             <option value="XS">XS</option>
             <option value="S">S</option>
             <option value="M">M</option>
             <option value="L">L</option>
             <option value="XL">XL</option>
-            <option value="XL">XXL</option>
+            <option value="XXL">XXL</option>
         </select>
     </div>
 
     <div class="input-group">
         <label for="velicinaObuce">Veličina obuće:</label>
-        <select id="velicinaObuce" class="input">
+        <select id="velicinaObuce" class="input" th:field="*{velicinaObuce}">
             <option value="36">36</option>
             <option value="37">37</option>
             <option value="38">38</option>
             <option value="39">39</option>
             <option value="40">40</option>
-            <option value="40">41</option>
-            <option value="40">42</option>
-            <option value="40">43</option>
-            <option value="40">44</option>
-            <option value="40">45</option>
-            <option value="40">46</option>
-            <option value="40">47</option>
-            <option value="40">48</option>
-            <option value="40">49</option>
-            <option value="40">50</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+            <option value="49">49</option>
+            <option value="50">50</option>
         </select>
     </div>
 
     <div class="input-group">
         <label for="velicinaKacige">Veličina kacige:</label>
-        <select id="velicinaKacige" class="input">
+        <select id="velicinaKacige" class="input" th:field="*{velicinaKacige}">
             <option value="S">S</option>
             <option value="M">M</option>
             <option value="L">L</option>
@@ -238,15 +239,15 @@
     </div>
     <div class="input-group">
         <label for="tezina">Težina (kg):</label>
-        <input type="number" id="tezina" class="input">
+        <input type="number" id="tezina" class="input" placeholder="Tezina" th:field="*{tezina}"/>
     </div>
     <div class="input-group">
         <label for="visina">Visina (cm):</label>
-        <input type="number" id="visina" class="input">
+        <input type="number" id="visina" class="input" placeholder="Visina" th:field="*{visina}">
     </div>
     <div class="input-group">
         <label for="lozinka">Lozinka:</label>
-        <input type="password" id="lozinka" class="input">
+        <input type="password" id="lozinka" class="input" th:field="*{lozinka}">
     </div>
     <div class="input-group">
         <label for="potvrdaLozinke">Potvrda lozinke:</label>
@@ -254,7 +255,9 @@
     </div>
     <button type="submit" style="background-color: #9c261e">Registriraj se</button>
     <br> <nav><h5><a href="proba.html">Već imate račun? Prijavite se ovdje.</a></h5></nav>
-</div>
+
+</form>
+
 </body>
 
 </html>
