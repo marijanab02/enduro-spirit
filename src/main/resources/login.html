@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija</title>
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #232323;
+        }
+
+        #logo {
+            margin-top:120px;
+            width: 161px;
+            height: auto;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #login {
+            margin-top: 20px;
+            width: 20%;
+            max-width: 300px;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-family: sans-serif;
+            color: #4d4b4b;
+        }
+
+
+        input {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #de2c26;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 20%;
+            height: 6%;
+            margin-top: 10px;
+            box-shadow: none;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        #login
+        {
+            height: auto;
+        }
+        @media (min-width: 576px) {
+            #logo
+            {
+                max-width: 100%;
+            }
+
+            #login
+            {
+                max-width: 100%;
+            }
+
+
+        }
+
+
+        @media (max-width: 600px) {
+            .input-group {
+                width: 100%;
+                margin-right: 10px;
+            }
+            button {
+                width: 30%;
+                max-width: none;
+                margin-top: 10px;
+                font-size: 2vw;
+            }
+        }
+
+
+        @media (min-width: 768px) {
+            #logo
+            {
+                max-width: 80%;
+            }
+
+            #login
+            {
+                max-width: 80%;
+            }
+        }
+
+
+        @media (min-width: 992px) {
+            #logo
+            {
+                max-width: 60%;
+            }
+
+            #login
+            {
+                max-width: 60%;
+            }
+        }
+
+
+        @media (min-width: 1200px) {
+            #logo
+            {
+                max-width: 50%;
+            }
+
+            #login
+            {
+                max-width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
+<div id="logo">
+    <img src="endurologo.png" style="max-width:100%; height:auto;">
+</div>
+<div id="login">
+
+    <label for="email">E-mail adresa:</label>
+    <input type="email" id="email" class="input" width="80%">
+
+
+    <label for="lozinka">Lozinka:</label>
+    <input type="password" id="lozinka" class="input">
+
+
+    <button type="submit" style="background-color: #9c261e">Prijavi se</button>
+</div>
+</body>
+
+</html>
