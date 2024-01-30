@@ -18,55 +18,57 @@ public class Korisnik {
     private Long ID;
     @Size(min=3, max=20, message="Polje ime mora imati izmedu 3 i 20 znakova")
     @NotBlank(message="Polje ime je obavezno")
-    String Ime;
+    String ime;
     @Size(min=3, max=20, message="Polje prezime mora imati izmedu 3 i 20 znakova")
     @NotBlank(message="Polje prezime je obavezno")
-    String Prezime;
+    String prezime;
     @NotBlank(message = "Polje email je obavezno")
     @Email(message = "Email adresa mora biti ispravnog fonta")
-    String Email;
+    String email;
     @NotBlank(message = "Polje adresa je obavezno")
-    String Adresa;
-    String Telefon;
+    String adresa;
     @NotBlank(message = "Polje je obavezno")
-    String DatumRodenja;
+    @Pattern(regexp = "[0-9]+", message = "Telefon mora sadržavati samo brojeve")
+    String telefon;
     @NotBlank(message = "Polje je obavezno")
-    String VozackeSposobnosti;
+    String datumRodenja;
     @NotBlank(message = "Polje je obavezno")
-    String VelicinaOdjece;
+    String vozackeSposobnosti;
+    @NotBlank(message = "Polje je obavezno")
+    String velicinaOdjece;
     @NotNull(message = "Polje je obavezno")
-    Long VelicinaObuce;
+    Long velicinaObuce;
     @NotBlank(message = "Polje je obavezno")
-    String VelicinaKacige;
+    String velicinaKacige;
     @NotNull(message = "Polje je obavezno")
-    Long Tezina;
+    Long tezina;
     @NotNull(message = "Polje je obavezno")
-    Long Visina;
-    String Role;
+    Long visina;
+    String role;
     @NotBlank(message = "Polje je obavezno")
-    String Lozinka;
+    String lozinka;
     @NotBlank(message = "Polje je obavezno")
     @Transient
-    String PotvrdaLozinke;
+    String potvrdaLozinke;
     public Korisnik() {
     }
 
     public Korisnik(String ime, String prezime, String email, String adresa, String telefon, String datumRodenja, String vozackeSposobnosti, String velicinaOdjece, Long velicinaObuce, String velicinaKacige, Long tezina, Long visina, String role, String lozinka, String potvrdaLozinke) {
-        Ime = ime;
-        Prezime = prezime;
-        Email = email;
-        Adresa = adresa;
-        Telefon = telefon;
-        DatumRodenja = datumRodenja;
-        VozackeSposobnosti = vozackeSposobnosti;
-        VelicinaOdjece = velicinaOdjece;
-        VelicinaObuce = velicinaObuce;
-        VelicinaKacige = velicinaKacige;
-        Tezina = tezina;
-        Visina = visina;
-        Role = role;
-        Lozinka = lozinka;
-        PotvrdaLozinke = potvrdaLozinke;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.email = email;
+        this.adresa = adresa;
+        this.telefon = telefon;
+        this.datumRodenja = datumRodenja;
+        this.vozackeSposobnosti = vozackeSposobnosti;
+        this.velicinaOdjece = velicinaOdjece;
+        this.velicinaObuce = velicinaObuce;
+        this.velicinaKacige = velicinaKacige;
+        this.tezina = tezina;
+        this.visina = visina;
+        this.role = role;
+        this.lozinka = lozinka;
+        this.potvrdaLozinke = potvrdaLozinke;
     }
 
     public Long getID() {
@@ -78,126 +80,126 @@ public class Korisnik {
     }
 
     public String getIme() {
-        return Ime;
+        return ime;
     }
 
     public void setIme(String ime) {
-        Ime = ime;
+        this.ime = ime;
     }
 
     public String getPrezime() {
-        return Prezime;
+        return prezime;
     }
 
     public void setPrezime(String prezime) {
-        Prezime = prezime;
+        this.prezime = prezime;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getAdresa() {
-        return Adresa;
+        return adresa;
     }
 
     public void setAdresa(String adresa) {
-        Adresa = adresa;
+        this.adresa = adresa;
     }
 
     public String getTelefon() {
-        return Telefon;
+        return telefon;
     }
 
     public void setTelefon(String telefon) {
-        Telefon = telefon;
+        this.telefon = telefon;
     }
 
     public String getDatumRodenja() {
-        return DatumRodenja;
+        return datumRodenja;
     }
 
     public void setDatumRodenja(String datumRodenja) {
-        DatumRodenja = datumRodenja;
+        this.datumRodenja = datumRodenja;
     }
 
     public String getVozackeSposobnosti() {
-        return VozackeSposobnosti;
+        return vozackeSposobnosti;
     }
 
     public void setVozackeSposobnosti(String vozackeSposobnosti) {
-        VozackeSposobnosti = vozackeSposobnosti;
+        this.vozackeSposobnosti = vozackeSposobnosti;
     }
 
     public String getVelicinaOdjece() {
-        return VelicinaOdjece;
+        return velicinaOdjece;
     }
 
     public void setVelicinaOdjece(String velicinaOdjece) {
-        VelicinaOdjece = velicinaOdjece;
+        this.velicinaOdjece = velicinaOdjece;
     }
 
     public Long getVelicinaObuce() {
-        return VelicinaObuce;
+        return velicinaObuce;
     }
 
     public void setVelicinaObuce(Long velicinaObuce) {
-        VelicinaObuce = velicinaObuce;
+        this.velicinaObuce = velicinaObuce;
     }
 
     public String getVelicinaKacige() {
-        return VelicinaKacige;
+        return velicinaKacige;
     }
 
     public void setVelicinaKacige(String velicinaKacige) {
-        VelicinaKacige = velicinaKacige;
+        this.velicinaKacige = velicinaKacige;
     }
 
     public Long getTezina() {
-        return Tezina;
+        return tezina;
     }
 
     public void setTezina(Long tezina) {
-        Tezina = tezina;
+        this.tezina = tezina;
     }
 
     public Long getVisina() {
-        return Visina;
+        return visina;
     }
 
     public void setVisina(Long visina) {
-        Visina = visina;
+        this.visina = visina;
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
 
     public String getLozinka() {
-        return Lozinka;
+        return lozinka;
     }
 
     public void setLozinka(String lozinka) {
-        Lozinka = lozinka;
+        this.lozinka = lozinka;
     }
     public String getPotvrdaLozinke(){
-        return PotvrdaLozinke;
+        return potvrdaLozinke;
     }
     public void setPotvrdaLozinke(String potvrdaLozinke){
-        PotvrdaLozinke=potvrdaLozinke;
+        this.potvrdaLozinke=potvrdaLozinke;
     }
     @AssertTrue(message = "Lozinke se moraju podudarati")
     public boolean isPasswordsEqual(){
         try{
-            return this.Lozinka.equals(this.PotvrdaLozinke);
+            return this.lozinka.equals(this.potvrdaLozinke);
         }catch (Exception e){
             return false;
         }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registracija</title>
+    <title>Login</title>
     <style type="text/css">
         body {
             display: flex;
@@ -53,7 +53,7 @@
             border: none;
             padding: 10px;
             width: 30%;
-            height: 20%;
+            height: 15%;
             margin-top: 10px;
             box-shadow: none;
             margin-bottom: 20px;
@@ -70,27 +70,23 @@
         }
 
         #text{
-            position: absolute;
-            top: 67%;
-            width: 100%;
-            right: 5%;
             text-align: center;
             font-family: sans-serif;
+            color: #4d4b4b;
             text-decoration: none;
-            color: #fff;
+
         }
 
         #text1 {
-            position: absolute;
-            top: 72%;
-            width: 100%;
-            right: 4%;
             font-family: sans-serif;
             text-align: center;
             text-decoration: none;
-            color: #fff;
+            color: #4d4b4b;
         }
-
+        .warning{
+            color:red;
+            background-color: white;
+        }
         #login
         {
             height: auto;
@@ -168,27 +164,26 @@
 <div id="logo">
     <img src="WebLogo.png" style="max-width:100%; height:auto;">
 </div>
-<div id="login">
+<form id="login" action="/auth/login" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <label for="email">Korisničko ime ili E-mail adresa:</label>
-    <input type="email" id="email" class="input" width="80%">
+    <input required type="email" id="email" class="input" width="80%">
+
 
     <label for="lozinka">Lozinka:</label>
-    <input type="password" id="lozinka" class="input">
-
-    <nav><input type="checkbox" name= "skills" value="forever"/> Ostanite prijavljeni
+    <input required type="password" id="lozinka" class="input">
+    <div class="warning" th:if="${param.error}">Pogresan email ili lozinka pokusajte ponovo.</div>
+    <nav><input type="checkbox" name= "remember-me" value="true"/><br/>Ostanite prijavljeni
     </nav>
     <button type="submit" style="background-color: #9c261e">Prijavi se<br></br></button>
 
-</div>
-<div id="text">
-    <a href="https://www.enduro-spirit.com/login/?action=lostpassword">Zaboravili ste lozinku?</a>
-</div>
-<div id="text1">
-    <a href="https://www.enduro-spirit.com/"><-Povratak na Enduro-Spirit</a>
-</div>
-
-
-
+    <div id="text">
+       Nemate račun? <a href="/auth/register">Regstrirajte se ovdje</a>
+    </div></br></br>
+    <div id="text1">
+        <a href="https://www.enduro-spirit.com/"><-Povratak na Enduro-Spirit</a>
+    </div>
+</form>
 
 </body>
 

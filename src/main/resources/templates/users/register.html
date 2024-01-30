@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -35,9 +35,8 @@
             justify-content: space-between;
             margin-bottom: 10px;
         }
-        #bla{
-            background-color: blueviolet;
-            color: white;
+        .warning{
+            color: red;
         }
         select {
             background-color: #1a1a1a;
@@ -174,22 +173,22 @@
     <div class="input-group">
         <label for="ime">Unesite Vaše ime:</label>
         <input type="text" id="ime" class="input" width="30%" placeholder="Unesite ime" th:field="*{ime}"/>
-        <div id="bla" th:if="${#fields.hasErrors('ime')}" th:errors="*{ime}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('ime')}" th:errors="*{ime}"></div>
     </div>
     <div class="input-group">
         <label for="prezime">Unesite Vaše prezime:</label>
         <input type="text" id="prezime" class="input" width="30%" placeholder="Unesiet prezime" th:field="*{prezime}"/>
-        <div th:if="${#fields.hasErrors('prezime')}" th:errors="*{prezime}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('prezime')}" th:errors="*{prezime}"></div>
     </div>
     <div class="input-group">
         <label for="email">E-mail adresa:</label>
         <input type="email" id="email" class="input" width="80%" placeholder="Unesite e-mail adresu" th:field="*{email}"/>
-        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
     </div>
     <div class="input-group">
         <label for="adresa">Vaša adresa:</label>
         <input type="text" id="adresa" class="input" placeholder="Unesite adresu" th:field="*{adresa}"/>
-        <div th:if="${#fields.hasErrors('adresa')}" th:errors="*{adresa}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('adresa')}" th:errors="*{adresa}"></div>
     </div>
     <div class="input-group">
         <label for="telefon">Unesite broj telefona:</label>
@@ -198,12 +197,12 @@
     <div class="input-group">
         <label for="datumRodjenja">Unesite datum rođenja:</label>
         <input type="date" id="datumRodjenja" class="input" placeholder="Datum rodenja" th:field="*{datumRodenja}"/>
-        <div th:if="${#fields.hasErrors('datumRodenja')}" th:errors="*{datumRodenja}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('datumRodenja')}" th:errors="*{datumRodenja}"></div>
     </div>
     <div class="input-group">
         <label for="vozacke">Vozačke sposobnosti:</label>
         <input type="text" id="vozacke" class="input" placeholder="Sposobnosti" th:field="*{vozackeSposobnosti}"/>
-        <div th:if="${#fields.hasErrors('vozackeSposobnosti')}" th:errors="*{vozackeSposobnosti}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('vozackeSposobnosti')}" th:errors="*{vozackeSposobnosti}"></div>
     </div>
     <div class="input-group">
         <label for="velicinaOdjece">Veličina odjeće:</label>
@@ -215,7 +214,7 @@
             <option value="XL">XL</option>
             <option value="XXL">XXL</option>
         </select>
-        <div th:if="${#fields.hasErrors('velicinaOdjece')}" th:errors="*{velicinaOdjece}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('velicinaOdjece')}" th:errors="*{velicinaOdjece}"></div>
     </div>
 
     <div class="input-group">
@@ -237,7 +236,7 @@
             <option value="49">49</option>
             <option value="50">50</option>
         </select>
-        <div th:if="${#fields.hasErrors('velicinaObuce')}" th:errors="*{velicinaObuce}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('velicinaObuce')}" th:errors="*{velicinaObuce}"></div>
     </div>
 
     <div class="input-group">
@@ -248,33 +247,33 @@
             <option value="L">L</option>
             <option value="L">XL</option>
         </select>
-        <div th:if="${#fields.hasErrors('velicinaKacige')}" th:errors="*{velicinaKacige}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('velicinaKacige')}" th:errors="*{velicinaKacige}"></div>
     </div>
     <div class="input-group">
         <label for="tezina">Težina (kg):</label>
         <input type="number" id="tezina" class="input" placeholder="Tezina" th:field="*{tezina}"/>
-        <div th:if="${#fields.hasErrors('tezina')}" th:errors="*{tezina}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('tezina')}" th:errors="*{tezina}"></div>
     </div>
     <div class="input-group">
         <label for="visina">Visina (cm):</label>
         <input type="number" id="visina" class="input" placeholder="Visina" th:field="*{visina}">
-        <div th:if="${#fields.hasErrors('visina')}" th:errors="*{visina}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('visina')}" th:errors="*{visina}"></div>
 
     </div>
     <div class="input-group">
         <label for="lozinka">Lozinka:</label>
         <input type="password" id="lozinka" class="input" th:field="*{lozinka}">
-        <div th:if="${#fields.hasErrors('lozinka')}" th:errors="*{lozinka}"></div>
-        <div th:if="${#fields.hasErrors('passwordsEqual')}" th:errors="*{passwordsEqual}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('lozinka')}" th:errors="*{lozinka}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('passwordsEqual')}" th:errors="*{passwordsEqual}"></div>
     </div>
     <div class="input-group">
         <label for="potvrdaLozinke">Potvrda lozinke:</label>
         <input type="password" id="potvrdaLozinke" class="input" th:field="*{potvrdaLozinke}">
-        <div th:if="${#fields.hasErrors('potvrdaLozinke')}" th:errors="*{potvrdaLozinke}"></div>
-        <div th:if="${#fields.hasErrors('passwordsEqual')}" th:errors="*{passwordsEqual}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('potvrdaLozinke')}" th:errors="*{potvrdaLozinke}"></div>
+        <div class="warning" th:if="${#fields.hasErrors('passwordsEqual')}" th:errors="*{passwordsEqual}"></div>
     </div>
     <button type="submit" style="background-color: #9c261e">Registriraj se</button>
-    <br> <nav><h5><a href="proba.html">Već imate račun? Prijavite se ovdje.</a></h5></nav>
+    <br> <nav><h5><a href="/auth/login">Već imate račun? Prijavite se ovdje.</a></h5></nav>
 
 </form>
 
