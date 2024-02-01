@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Korisnika</title>
+
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #232323;
+            color: #ecf0f1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        .container {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+
+        }
+
+        h2 {
+            color: #e44d26;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #e44d26;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        .btn {
+            background-color: #e44d26;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #c53719;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: #232323;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #e44d26;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #1a1a1a;
+        }
+
+        .btn-danger {
+            background-color: #d33f2f;
+        }
+
+        .btn-primary {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Lista Korisnika</h2>
+    <a href="/users/add" class="btn">Dodaj Novog Korisnika</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Adresa</th>
+            <th>Velicina kacige</th>
+            <th>Velicina odjece</th>
+            <th>Velicina obuce</th>
+            <th>Vozacke sposobnosti</th>
+            <th>Tezina</th>
+            <th>Visina</th>
+            <th>Akcije</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="korisnik : ${users}">
+            <td th:text="${korisnik.ime}">Ime</td>
+            <td th:text="${korisnik.prezime}">Prezime</td>
+            <td th:text="${korisnik.email}">Email</td>
+            <td th:text="${korisnik.telefon}">Telefon</td>
+            <td th:text="${korisnik.adresa}">Adresa</td>
+            <td th:text="${korisnik.velicinaKacige}">Velicina kacige</td>
+            <td th:text="${korisnik.velicinaOdjece}">Velicina odjece</td>
+            <td th:text="${korisnik.velicinaObuce}">Velicina obuce</td>
+            <td th:text="${korisnik.vozackeSposobnosti}">Vozacke sposobnosti</td>
+            <td th:text="${korisnik.tezina}">Tezina</td>
+            <td th:text="${korisnik.visina}">Visina</td>
+            <td>
+                <div>
+                    <form th:action="@{/users/delete/{korisnikId}(korisnikId=${korisnik.id})}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Obriši</button>
+                    </form></br>
+                    <a th:href="@{/users/edit/{korisnikId}(korisnikId=${korisnik.id})}" class="btn btn-primary d-inline-block">Uredi</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>

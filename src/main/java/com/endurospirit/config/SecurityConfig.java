@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -18,7 +17,7 @@ public class SecurityConfig {
     DataSource dataSource;
 
     @Bean
-    public UserDetailsService userDetailsService(){
+    public KorisnikDetailsService korisnikDetailsService(){
         return new KorisnikDetailsService();
     }
 
@@ -33,7 +32,7 @@ public class SecurityConfig {
 
         daoAuthenticationProvider.setPasswordEncoder(this.passwordEncoder());
 
-        daoAuthenticationProvider.setUserDetailsService((this.userDetailsService()));
+        daoAuthenticationProvider.setUserDetailsService(this.korisnikDetailsService());
         return daoAuthenticationProvider;
     }
 
@@ -41,7 +40,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/register/**","/auth/register")
+                .requestMatchers("/auth/register/**","/auth/register", "/WebLogo.png")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -55,7 +54,7 @@ public class SecurityConfig {
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();
 
-
+        http.authenticationProvider(authenticationProvider());
         http.headers().frameOptions().sameOrigin();
 
         return http.build();

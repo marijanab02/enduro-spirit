@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uredi Korisnika</title>
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #232323;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #9c261e;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #4d4b4b;
+        }
+
+        input,
+        select {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .invalid-feedback {
+            color: red;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #9c261e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Uredi Korisnika</h2>
+    <form th:action="@{/users/edit/{korisnikId}(korisnikId=${korisnik.id})}" th:object="${korisnik}" method="post">
+        <label for="ime">Ime:</label>
+        <input type="text" th:field="*{ime}" id="ime" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('ime')}" th:errors="*{ime}"></div>
+
+        <label for="prezime">Prezime:</label>
+        <input type="text" th:field="*{prezime}" id="prezime" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('prezime')}" th:errors="*{prezime}"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" th:field="*{email}" id="email" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+        <!-- Additional Inputs -->
+        <label for="adresa">Vaša adresa:</label>
+        <input type="text" th:field="*{adresa}" id="adresa" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('adresa')}" th:errors="*{adresa}"></div>
+
+        <label for="telefon">Unesite broj telefona:</label>
+        <input type="number" th:field="*{telefon}" id="telefon" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"></div>
+
+        <label for="datumRodjenja">Unesite datum rođenja:</label>
+        <input type="date" th:field="*{datumRodenja}" id="datumRodjenja" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('datumRodenja')}" th:errors="*{datumRodenja}"></div>
+
+        <label for="vozackeSposobnosti">Vozačke sposobnosti:</label>
+        <input type="text" th:field="*{vozackeSposobnosti}" id="vozackeSposobnosti" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('vozackeSposobnosti')}" th:errors="*{vozackeSposobnosti}"></div>
+
+        <label for="velicinaOdjece">Veličina odjeće:</label>
+        <select id="velicinaOdjece" th:field="*{velicinaOdjece}" required>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('velicinaOdjece')}" th:errors="*{velicinaOdjece}"></div>
+
+        <label for="velicinaObuce">Veličina obuće:</label>
+        <select id="velicinaObuce" th:field="*{velicinaObuce}" required>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+            <option value="49">49</option>
+            <option value="50">50</option>
+        </select>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('velicinaObuce')}" th:errors="*{velicinaObuce}"></div>
+
+        <label for="velicinaKacige">Veličina kacige:</label>
+        <select id="velicinaKacige" th:field="*{velicinaKacige}" required>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('velicinaKacige')}" th:errors="*{velicinaKacige}"></div>
+
+        <label for="tezina">Težina (kg):</label>
+        <input type="number" th:field="*{tezina}" id="tezina" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('tezina')}" th:errors="*{tezina}"></div>
+
+        <label for="visina">Visina (cm):</label>
+        <input type="number" th:field="*{visina}" id="visina" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('visina')}" th:errors="*{visina}"></div>
+
+        <label for="lozinka">Lozinka:</label>
+        <input type="password" th:field="*{lozinka}" id="lozinka" required/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('lozinka')}" th:errors="*{lozinka}"></div>
+
+        <label for="potvrdaLozinke">Potvrdite Lozinku:</label>
+        <input type="password" th:field="*{potvrdaLozinke}" id="potvrdaLozinke"/>
+        <div class="invalid-feedback" th:if="${#fields.hasErrors('potvrdaLozinke')}" th:errors="*{potvrdaLozinke}"></div>
+
+        <button type="submit">Spremi</button>
+    </form>
+</div>
+</body>
+
+</html>

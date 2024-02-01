@@ -15,7 +15,7 @@ import java.util.List;
 public class Korisnik {
     @Id
     @GeneratedValue
-    private Long ID;
+    private Long id;
     @Size(min=3, max=20, message="Polje ime mora imati izmedu 3 i 20 znakova")
     @NotBlank(message="Polje ime je obavezno")
     String ime;
@@ -53,7 +53,8 @@ public class Korisnik {
     public Korisnik() {
     }
 
-    public Korisnik(String ime, String prezime, String email, String adresa, String telefon, String datumRodenja, String vozackeSposobnosti, String velicinaOdjece, Long velicinaObuce, String velicinaKacige, Long tezina, Long visina, String role, String lozinka, String potvrdaLozinke) {
+    public Korisnik(Long id, String ime, String prezime, String email, String adresa, String telefon, String datumRodenja, String vozackeSposobnosti, String velicinaOdjece, Long velicinaObuce, String velicinaKacige, Long tezina, Long visina, String role, String lozinka, String potvrdaLozinke) {
+        this.id = id;
         this.ime = ime;
         this.prezime = prezime;
         this.email = email;
@@ -71,12 +72,12 @@ public class Korisnik {
         this.potvrdaLozinke = potvrdaLozinke;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIme() {

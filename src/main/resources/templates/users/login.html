@@ -85,7 +85,6 @@
         }
         .warning{
             color:red;
-            background-color: white;
         }
         #login
         {
@@ -162,16 +161,17 @@
 
 <body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
 <div id="logo">
-    <img src="WebLogo.png" style="max-width:100%; height:auto;">
+    <img th:src="@{/WebLogo.png}" style="max-width:100%; height:auto;">
 </div>
 <form id="login" action="/auth/login" method="post">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
     <label for="email">Korisničko ime ili E-mail adresa:</label>
-    <input required type="email" id="email" class="input" width="80%">
+    <input required type="email" id="email" name="email" class="input" width="80%">
 
 
-    <label for="lozinka">Lozinka:</label>
-    <input required type="password" id="lozinka" class="input">
+    <label for="password">Lozinka:</label>
+    <input required type="password" id="password" name="password" class="input">
     <div class="warning" th:if="${param.error}">Pogresan email ili lozinka pokusajte ponovo.</div>
     <nav><input type="checkbox" name= "remember-me" value="true"/><br/>Ostanite prijavljeni
     </nav>

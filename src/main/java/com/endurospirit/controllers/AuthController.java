@@ -10,8 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class AuthController {
@@ -19,7 +17,7 @@ public class AuthController {
     KorisnikRepository korisnikRepo;
 
     @GetMapping("/auth/register")
-    public String register (Model model){
+    public String add (Model model){
         Korisnik korisnik = new Korisnik();
         model.addAttribute("korisnik", korisnik);
         return "users/register";

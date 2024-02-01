@@ -166,7 +166,7 @@
 
 <body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
 <div id="logo">
-    <img src="WebLogo.png" style="max-width:100%; height:auto;">
+    <img th:src="@{/WebLogo.png}" style="max-width:100%; height:auto;"></img>
 </div>
 
 <form id="login" th:action="@{/auth/register}" method="post" th:object="${korisnik}">
