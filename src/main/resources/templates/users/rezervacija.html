@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezervacijaTure</title>
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            overflow: auto;
+            margin: 0;
+            background-color: #232323;
+            color: white;
+            font-family: Arial;
+        }
+
+        header
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 130px;
+            width: 100%;
+            background-color: black;
+        }
+        #header1
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 130px;
+            width: 100%;
+            background-color: black;
+        }
+
+        #logo
+        {
+            margin-left: 90px;
+            width: 140px;
+            height: auto;
+            max-height: 100px;
+        }
+
+        #sloj1
+        {
+            position: absolute;
+            left: 160px;
+            right: 10px;
+            top: 300px;
+            width: 250px;
+            height: 650px;
+            background-color: #505b61;
+            text-align: center;
+            color: blue;
+        }
+        #sloj2
+        {
+            position: absolute;
+            left: 460px;
+            right: 10px;
+            top: 300px;
+            width: 250px;
+            height: 650px;
+            background-color: #505b61;
+            text-align: center;
+            color: blue;
+        }
+        #sloj3
+        {
+            position: absolute;
+            left: 760px;
+            right: 10px;
+            top: 300px;
+            width: 250px;
+            height: 650px;
+            background-color: #505b61;
+            text-align: center;
+            color: blue;
+        }
+        #sloj4
+        {
+            position: absolute;
+            left: 1060px;
+            right: 10px;
+            top: 300px;
+            width: 250px;
+            height: 650px;
+            background-color: #505b61;
+            text-align: center;
+            color: blue;
+        }
+        #navsloj2
+        {
+            position: absolute;
+            width: 100%;
+            height: 45px;
+            background-color: #969b9e;
+            color: #232323;
+            font-align: center;
+        }
+        #navsloj1
+        {
+            position: absolute;
+            width: 100%;
+            height: 45px;
+            background-color: #969b9e;
+            color: #232323;
+            font-align: center;
+        }
+        #navsloj3
+        {
+            position: absolute;
+            width: 100%;
+            height: 45px;
+            background-color: #969b9e;
+            color: #232323;
+            font-align: center;
+        }
+        #navsloj4
+        {
+            position: absolute;
+            width: 100%;
+            height: 45px;
+            background-color: #969b9e;
+            color: #232323;
+            font-align: center;
+        }
+        #navtermini1
+        {
+            top: 1200px;
+            position: absolute;
+            left: 160px;
+            width: 1150px;
+            height: 50px;
+            background-color: #080807;
+            color: white;
+            font-align: center;
+        }
+        #navtermini2
+        {
+            top: 1280px;
+            position: absolute;
+            left: 160px;
+            width: 1150px;
+            height: 60px;
+            background-color: #4d4b4b;
+            color: white;
+            font-align: center;
+            bottom: 20%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+        }
+
+        nav li {
+            margin-right: 90px;
+        }
+        h2 {
+            font-size: 1.0em;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 0.8em;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        @media (max-width: 576px)
+        {
+            body
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: 220vh;
+                margin: 0;
+                background-color: #232323;
+                color: white;
+                font-family: Arial;
+            }
+            #logo
+            {
+                margin-left: 10px;
+                width: 140px;
+                height: auto;
+            }
+            header
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 130px;
+                width: 100%;
+                background-color: black;
+            }
+            h2
+            {
+                font-size: 1.0em;
+                text-align: center;
+            }
+
+            h4
+            {
+                font-size: 0.8em;
+                text-align: center;
+            }
+
+            h1
+            {
+                font-size: 1.5em;
+                text-align: center;
+            }
+            #sloj1, #sloj2, #sloj3, #sloj4 {
+                position: static;
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                margin: 20px;
+            }
+            #header1 {
+                display: none;
+            }
+
+
+            #navtermini1
+            {
+                top: auto;
+                position: static;
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+                background-color: #080807;
+                text-align:center;
+            }
+            #navtermini2 {
+                top: auto;
+                flex-direction: column;
+                position: static;
+                width: 100%;
+                height: auto;
+                background-color: #4d4b4b;
+                color: white;
+                text-align: center;
+            }
+            #navtermini1 nav,
+            #navtermini2 nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #navtermini1 nav ul,
+            #navtermini2 nav ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                font-size: 15px;
+            }
+            #navtermini1 nav li, #navtermini2 nav li {
+                margin: 10px 0;
+                margin-bottom: 10px;
+                text-align:center;
+            }
+
+        }
+        @media (max-width: 1300px)
+        {
+            body
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: 220vh;
+                margin: 0;
+                background-color: #232323;
+                color: white;
+                font-family: Arial;
+            }
+            #logo
+            {
+                margin-left: 10px;
+                width: 140px;
+                height: auto;
+            }
+            header
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 130px;
+                width: 100%;
+                background-color: black;
+            }
+            h2
+            {
+                font-size: 1.0em;
+                text-align: center;
+            }
+
+            h4
+            {
+                font-size: 0.8em;
+                text-align: center;
+            }
+
+            h1
+            {
+                font-size: 1.5em;
+                text-align: center;
+            }
+            #sloj1, #sloj2, #sloj3, #sloj4 {
+                position: static;
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                margin: 20px;
+            }
+            #header1 {
+                display: none;
+            }
+
+
+            #navtermini1
+            {
+                top: auto;
+                position: static;
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+                background-color: #080807;
+                text-align:center;
+            }
+            #navtermini2 {
+                top: auto;
+                flex-direction: column;
+                position: static;
+                width: 100%;
+                height: auto;
+                background-color: #4d4b4b;
+                color: white;
+                text-align: center;
+            }
+            #navtermini1 nav,
+            #navtermini2 nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #navtermini1 nav ul,
+            #navtermini2 nav ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                font-size: 15px;
+            }
+            #navtermini1 nav li,
+            #navtermini2 nav li {
+                margin: 10px 0;
+                margin-bottom: 10px;
+                text-align:center;
+            }
+
+        }
+    </style>
+</head>
+
+<body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
+<header>
+    <div id="logo">
+        <img src="endurologo.png" style="max-width:100%; height:auto;">
+    </div>
+    <div id="header1">
+        <nav>
+            <ul>
+                <li>O NAMA</li>
+                <li>SERVISI</li>
+                <li>HARD ENDURO</li>
+                <li>TRAVEL ENDURO</li>
+                <li>GALERIJA</li>
+                <li>DOJMOVI</li>
+                <li>FAQ</li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h2>Hard Enduro</h2>
+<h4>Welcome to the ultimate Hard Enduro experience in Bosnia & Herzegovina with Enduro Spirit Bosnia!</h4>
+<h1>Predložene Enduro ture</h1>
+<div id="sloj1">
+    <div id="navsloj1">
+        <h3>8-dnevna tura</h3>
+    </div><br><br>
+    <h3 style="color: #d62e29; font-size: 20px;">5 - dnevna vožnja</h3>
+    <h3 style="color: white; font-size: 18px;">Subota - Subota</h3>
+    <h3 style="color: white; font-size: 17px;">Vodič ture</h3>
+    <h3 style="color: white; font-size: 17px;">Hotel</h3>
+    <h3 style="color: white; font-size: 17px;">Doručak</h3>
+    <h3 style="color: white; font-size: 17px;">Oprema</h3>
+    <h3 style="color: white; font-size: 17px;">Gorivo</h3>
+    <h3 style="color: white; font-size: 17px;">Motocikl</h3>
+    <h3 style="color: white; font-size: 17px;">Voda, sprej za lanac, pranje motocikla</h3>
+    <br>
+    <h3 style="color: #22a8f5; font-size: 27px;">2300KM</h3>
+    <hr style="border-color: black;">
+    <h3 style="color: white; font-size: 17px;">S vlastitim motociklom</h3>
+    <h3 style="color: #22a8f5; font-size: 27px;">1400KM</h3>
+</div>
+<div id="sloj2">
+    <div id="navsloj2">
+        <h3>5-dnevna tura</h3>
+    </div><br><br>
+    <h3 style="color: #d62e29; font-size: 20px;">3 - dnevna vožnja</h3>
+    <h3 style="color: white; font-size: 18px;">Subota - Srijeda</h3>
+    <h3 style="color: white; font-size: 17px;">Vodič ture</h3>
+    <h3 style="color: white; font-size: 17px;">Hotel</h3>
+    <h3 style="color: white; font-size: 17px;">Doručak</h3>
+    <h3 style="color: white; font-size: 17px;">Oprema</h3>
+    <h3 style="color: white; font-size: 17px;">Gorivo</h3>
+    <h3 style="color: white; font-size: 17px;">Motocikl</h3>
+    <h3 style="color: white; font-size: 17px;">Voda, sprej za lanac, pranje motocikla</h3>
+    <br>
+    <h3 style="color: #22a8f5; font-size: 27px;">1400KM</h3>
+    <hr style="border-color: black;">
+    <h3 style="color: white; font-size: 17px;">S vlastitim motociklom</h3>
+    <h3 style="color: #22a8f5; font-size: 27px;">1000KM</h3>
+</div>
+<div id="sloj3">
+    <div id="navsloj3">
+        <h3>8-dnevna tura-All included</h3>
+    </div>
+    <br><br>
+    <h3 style="color: #d62e29; font-size: 20px;">5 - dnevna vožnja</h3>
+    <h3 style="color: white; font-size: 18px;">Subota - Subota</h3>
+    <h3 style="color: white; font-size: 17px;">Vodič ture</h3>
+    <h3 style="color: white; font-size: 17px;">Hotel</h3>
+    <h3 style="color: white; font-size: 17px;">Wellness</h3>
+    <h3 style="color: white; font-size: 17px;">Doručak, ručak, večera, lokalna pića</h3>
+    <h3 style="color: white; font-size: 17px;">Oprema</h3>
+    <h3 style="color: white; font-size: 17px;">Gorivo</h3>
+    <h3 style="color: white; font-size: 17px;">Motocikl</h3>
+    <h3 style="color: white; font-size: 17px;">Voda, sprej za lanac, pranje motocikla</h3>
+    <h3 style="color: #22a8f5; font-size: 27px;">3000KM</h3>
+    <hr style="border-color: black;">
+    <h3 style="color: white; font-size: 17px;">S vlastitim motociklom</h3>
+    <h3 style="color: #22a8f5; font-size: 27px;">2100KM</h3>
+</div>
+<div id="sloj4">
+    <div id="navsloj4">
+        <h3>5-dnevna tura-All included</h3>
+    </div><br><br>
+    <h3 style="color: #d62e29; font-size: 20px;">3 - dnevna vožnja</h3>
+    <h3 style="color: white; font-size: 18px;">Subota - Srijeda</h3>
+    <h3 style="color: white; font-size: 17px;">Vodič ture</h3>
+    <h3 style="color: white; font-size: 17px;">Hotel</h3>
+    <h3 style="color: white; font-size: 17px;">Wellness</h3>
+    <h3 style="color: white; font-size: 17px;">Doručak, ručak, večera, lokalna pića</h3>
+    <h3 style="color: white; font-size: 17px;">Oprema</h3>
+    <h3 style="color: white; font-size: 17px;">Gorivo</h3>
+    <h3 style="color: white; font-size: 17px;">Motocikl</h3>
+    <h3 style="color: white; font-size: 17px;">Voda, sprej za lanac, pranje motocikla</h3>
+    <h3 style="color: #22a8f5; font-size: 27px;">2020KM</h3>
+    <hr style="border-color: black;">
+    <h3 style="color: white; font-size: 17px;">S vlastitim motociklom</h3>
+    <h3 style="color: #22a8f5; font-size: 27px;">1640KM</h3>
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2 style="font-size: 28px;">Kalendar tura za 2024. godinu</h2>
+<h2 style="color: #d62e29; font-size: 28px;">Predloženi termini</h2>
+<div id="navtermini1">
+    <nav style="margin-left: 80px; margin-top: 15px;">
+        <ul>
+            <li>Broj ture</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li>Datum prijave</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li>Datum odjave</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li>Trajanje ture</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li>Rezervacija ture</li>
+        </ul>
+    </nav>
+</div>
+<div id="navtermini2">
+    <nav style="margin-left: 80px; margin-top: 20px">
+        <ul>
+            <li style="color: #22a8f5; font-size: 20px;">400</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li>30.03.2024.</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li>06.04.2024.</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li>5/8</li>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <li><input type="submit" style="background-color: #d62e29; color: white; margin: 0px; width: 140%; height: 100%;" value="Rezerviraj"></li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
