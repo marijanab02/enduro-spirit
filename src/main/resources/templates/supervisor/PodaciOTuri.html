@@ -88,6 +88,11 @@
         {
             height: auto;
         }
+        h1 {
+            color: #de2c26;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         @media (min-width: 576px) {
             #logo
             {
@@ -161,10 +166,11 @@
 
 <body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
 <div id="logo">
-    <img src="endurologo.png" style="max-width:100%; height:auto;">
+    <img src="WebLogo.png" style="max-width:100%; height:auto;">
 </div>
-<div id="login">
 
+<form id="login">
+    <h1>Nova tura</h1>
     <div class="input-group">
         <label for="trajanje">Odaberite željenu turu:</label>
         <select id="trajanje" class="input" width="30%">
@@ -183,15 +189,12 @@
         <label for="zavrsetak">Završetak ture:</label>
         <input type="date" id="zavrsetak" class="input">
 
-        <label for="ime">Unesite broj ture koju želite:</label>
-        <input type="text" id="ime" class="input" width="30%">
-
 
         <div class="button">
             <button type="submit" style="background-color: #9c261e">Spremi turu</button>
             <br></div>
 
     </div>
-</div>
+</form>
 </body>
 </html>

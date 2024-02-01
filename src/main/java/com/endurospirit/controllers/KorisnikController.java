@@ -4,6 +4,7 @@ import com.endurospirit.models.Korisnik;
 import com.endurospirit.repositories.KorisnikRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class KorisnikController {
     KorisnikRepository korisnikRepository;
 
     @GetMapping("/users")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String listUsers (Model model){
         List<Korisnik> users = korisnikRepository.findAll();
         model.addAttribute("users", users);
@@ -29,12 +31,14 @@ public class KorisnikController {
     }
 
     @GetMapping("/users/add")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String showAddUserForm(Model model) {
         model.addAttribute("korisnik", new Korisnik());
         return "users/add";
     }
 
     @PostMapping("/users/add")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String addUser(@Valid Korisnik korisnik, BindingResult result, Model model) {
         if (result.hasErrors()){
             model.addAttribute("korisnik", korisnik);
@@ -50,12 +54,14 @@ public class KorisnikController {
     }
 
     @PostMapping("/users/delete/{korisnikId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteUser(@PathVariable Long korisnikId) {
         korisnikRepository.deleteById(korisnikId);
         return "redirect:/users";
     }
 
     @GetMapping("/users/edit/{korisnikId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String showEditUserForm(@PathVariable Long korisnikId, Model model) {
         Korisnik korisnik = korisnikRepository.findById(korisnikId)
                 .orElseThrow(() -> new IllegalArgumentException("Neispravan ID korisnika: " + korisnikId));
@@ -64,6 +70,7 @@ public class KorisnikController {
     }
 
     @PostMapping("/users/edit/{korisnikId}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String updateUser(@PathVariable Long korisnikId, @ModelAttribute Korisnik korisnik, Model model) {
         Korisnik existingUser = korisnikRepository.findById(korisnikId)
                 .orElseThrow(() -> new IllegalArgumentException("Neispravan ID korisnika: " + korisnikId));
@@ -84,6 +91,7 @@ public class KorisnikController {
         String lozinka = encoder.encode(korisnik.getLozinka());
         existingUser.setLozinka(lozinka);
         existingUser.setPotvrdaLozinke(lozinka);
+        existingUser.setRoles(korisnik.getRoles());
 
         korisnikRepository.save(existingUser);
         return "redirect:/users";

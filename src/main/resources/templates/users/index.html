@@ -99,6 +99,9 @@
 <div class="container">
     <h2>Lista Korisnika</h2>
     <a href="/users/add" class="btn">Dodaj Novog Korisnika</a>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-primary d-inline-block">Odjavi se</button>
+    </form>
     <table>
         <thead>
         <tr>
@@ -113,6 +116,7 @@
             <th>Vozacke sposobnosti</th>
             <th>Tezina</th>
             <th>Visina</th>
+            <th>Uloge</th>
             <th>Akcije</th>
         </tr>
         </thead>
@@ -129,6 +133,9 @@
             <td th:text="${korisnik.vozackeSposobnosti}">Vozacke sposobnosti</td>
             <td th:text="${korisnik.tezina}">Tezina</td>
             <td th:text="${korisnik.visina}">Visina</td>
+            <td>
+                <span th:each="role : ${korisnik.roles}" th:text="${role}"></span>
+            </td>
             <td>
                 <div>
                     <form th:action="@{/users/delete/{korisnikId}(korisnikId=${korisnik.id})}" method="post" class="d-inline">

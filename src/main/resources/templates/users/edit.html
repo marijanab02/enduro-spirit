@@ -153,6 +153,14 @@
         <input type="password" th:field="*{potvrdaLozinke}" id="potvrdaLozinke"/>
         <div class="invalid-feedback" th:if="${#fields.hasErrors('potvrdaLozinke')}" th:errors="*{potvrdaLozinke}"></div>
 
+        <label for="roles">Uloge:</label>
+        <select multiple th:field="*{roles}" id="roles" class="form-control">
+            <option value="ADMIN">Administrator</option>
+            <option value="SUPERVISOR">Supervisor</option>
+            <option value="DRIVER">Driver</option>
+            <!-- Dodajte ostale uloge prema potrebi -->
+        </select>
+
         <button type="submit">Spremi</button>
     </form>
 </div>

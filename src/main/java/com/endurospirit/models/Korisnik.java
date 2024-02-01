@@ -1,15 +1,12 @@
 package com.endurospirit.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Korisnik {
@@ -44,16 +41,19 @@ public class Korisnik {
     Long tezina;
     @NotNull(message = "Polje je obavezno")
     Long visina;
-    String role;
     @NotBlank(message = "Polje je obavezno")
     String lozinka;
     @NotBlank(message = "Polje je obavezno")
     @Transient
     String potvrdaLozinke;
+
+    @ElementCollection(fetch=FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    Set<Role> roles= new HashSet<>();
     public Korisnik() {
     }
 
-    public Korisnik(Long id, String ime, String prezime, String email, String adresa, String telefon, String datumRodenja, String vozackeSposobnosti, String velicinaOdjece, Long velicinaObuce, String velicinaKacige, Long tezina, Long visina, String role, String lozinka, String potvrdaLozinke) {
+    public Korisnik(Long id, String ime, String prezime, String email, String adresa, String telefon, String datumRodenja, String vozackeSposobnosti, String velicinaOdjece, Long velicinaObuce, String velicinaKacige, Long tezina, Long visina, String lozinka, String potvrdaLozinke) {
         this.id = id;
         this.ime = ime;
         this.prezime = prezime;
@@ -67,9 +67,9 @@ public class Korisnik {
         this.velicinaKacige = velicinaKacige;
         this.tezina = tezina;
         this.visina = visina;
-        this.role = role;
         this.lozinka = lozinka;
         this.potvrdaLozinke = potvrdaLozinke;
+        roles.add(Role.DRIVER);
     }
 
     public Long getId() {
@@ -176,13 +176,6 @@ public class Korisnik {
         this.visina = visina;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public String getLozinka() {
         return lozinka;
@@ -197,6 +190,15 @@ public class Korisnik {
     public void setPotvrdaLozinke(String potvrdaLozinke){
         this.potvrdaLozinke=potvrdaLozinke;
     }
+
+    public Set<Role> getRoles(){
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles){
+        this.roles =roles;
+    }
+
     @AssertTrue(message = "Lozinke se moraju podudarati")
     public boolean isPasswordsEqual(){
         try{

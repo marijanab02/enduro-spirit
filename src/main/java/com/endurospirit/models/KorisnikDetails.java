@@ -1,8 +1,10 @@
 package com.endurospirit.models;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 
 public class KorisnikDetails implements org.springframework.security.core.userdetails.UserDetails{
@@ -11,10 +13,7 @@ public class KorisnikDetails implements org.springframework.security.core.userde
         this.korisnik=korisnik;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
+
 
     @Override
     public String getPassword() {
@@ -56,5 +55,12 @@ public class KorisnikDetails implements org.springframework.security.core.userde
 
     public void setKorisnik(Korisnik korisnik){
         this.korisnik=korisnik;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return korisnik.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.name()))
+                .collect(Collectors.toList());
     }
 }
