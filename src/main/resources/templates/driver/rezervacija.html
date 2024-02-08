@@ -49,10 +49,9 @@
         #sloj1
         {
             position: absolute;
-            left: 160px;
-            right: 10px;
+            left: 10%;
             top: 300px;
-            width: 250px;
+            width: 17.5%;
             height: 650px;
             background-color: #505b61;
             text-align: center;
@@ -61,10 +60,9 @@
         #sloj2
         {
             position: absolute;
-            left: 460px;
-            right: 10px;
+            left: 30%;
             top: 300px;
-            width: 250px;
+            width: 17.5%;
             height: 650px;
             background-color: #505b61;
             text-align: center;
@@ -73,10 +71,9 @@
         #sloj3
         {
             position: absolute;
-            left: 760px;
-            right: 10px;
+            left: 50%;
             top: 300px;
-            width: 250px;
+            width: 17.5%;
             height: 650px;
             background-color: #505b61;
             text-align: center;
@@ -85,10 +82,9 @@
         #sloj4
         {
             position: absolute;
-            left: 1060px;
-            right: 10px;
+            left: 70%;
             top: 300px;
-            width: 250px;
+            width: 17.5%;
             height: 650px;
             background-color: #505b61;
             text-align: center;
@@ -290,6 +286,44 @@
             }
 
         }
+        table {
+            max-width: 800px;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: white;
+        }
+
+        thead {
+            background-color: #4d4b4b;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #969b9e;
+        }
+
+        input[type="submit"] {
+            background-color: #d62e29;
+            color: white;
+            padding: 8px; /* Adjust padding */
+            cursor: pointer;
+            box-sizing: border-box; /* Include padding in the button's full width */
+        }
+
+        /* Responsive styles for the table */
+        @media (max-width: 576px) {
+            table {
+                width: 100%;
+                max-width: none;
+            }
+
+            input[type="submit"] {
+                width: 100%; /* Full width on small screens */
+            }
+        }
+
         @media (max-width: 1300px)
         {
             body
@@ -399,7 +433,7 @@
 <body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
 <header>
     <div id="logo">
-        <img src="endurologo.png" style="max-width:100%; height:auto;">
+        <img th:src="@{/WebLogo.png}" style="max-width:100%; height:auto;">
     </div>
     <div id="header1">
         <nav>
@@ -497,35 +531,27 @@
 </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <h2 style="font-size: 28px;">Kalendar tura za 2024. godinu</h2>
 <h2 style="color: #d62e29; font-size: 28px;">Predloženi termini</h2>
-<div id="navtermini1">
-    <nav style="margin-left: 80px; margin-top: 15px;">
-        <ul>
-            <li>Broj ture</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li>Datum prijave</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li>Datum odjave</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li>Trajanje ture</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li>Rezervacija ture</li>
-        </ul>
-    </nav>
-</div>
-<div id="navtermini2">
-    <nav style="margin-left: 80px; margin-top: 20px">
-        <ul>
-            <li style="color: #22a8f5; font-size: 20px;">400</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li>30.03.2024.</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li>06.04.2024.</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li>5/8</li>
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-            <li><input type="submit" style="background-color: #d62e29; color: white; margin: 0px; width: 140%; height: 100%;" value="Rezerviraj"></li>
-        </ul>
-    </nav>
-</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Pocetak</th>
+        <th>Zavrsetak</th>
+        <th>Trajanje</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tura : ${ture}">
+        <td th:text="${tura.id}">Id</td>
+        <td th:text="${tura.pocetakTure}">Pocetak</td>
+        <td th:text="${tura.zavrsetakTure}">Zavrsetak</td>
+        <td th:text="${tura.trajanjeTure}">Trajanje</td>
+        <td><input type="submit" value="Rezerviraj"></td><br>
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

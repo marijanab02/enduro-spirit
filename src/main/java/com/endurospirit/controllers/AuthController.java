@@ -1,6 +1,7 @@
 package com.endurospirit.controllers;
 
 import com.endurospirit.models.Korisnik;
+import com.endurospirit.models.Tura;
 import com.endurospirit.repositories.KorisnikRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class AuthController {
     @Autowired
     KorisnikRepository korisnikRepo;
-
     @GetMapping("/auth/register")
     public String add (Model model){
         Korisnik korisnik = new Korisnik();
@@ -44,5 +44,6 @@ public class AuthController {
         model.addAttribute("korisnik", new Korisnik());
         return "users/login";
     }
+
 
 }

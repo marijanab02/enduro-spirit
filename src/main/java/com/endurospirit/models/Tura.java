@@ -13,71 +13,72 @@ import java.util.List;
 public class Tura {
     @Id
     @GeneratedValue
-    private Long ID;
+    private Long id;
 
-    Date PocetakTure;
-    Date ZavrsetakTure;
-    Boolean TrajanjeTure;
-    Long BrojMjesta;
-    Long BrojPopunjenihMjesta;
+    String pocetakTure;
+    String zavrsetakTure;
+    String trajanjeTure;
+    Long brojMjesta;
+    Long brojPopunjenihMjesta;
 
     public Tura() {
     }
 
-    public Tura(Date pocetakTure, Date zavrsetakTure, Boolean trajanjeTure, Long brojMjesta, Long brojPopunjenihMjesta) {
-        PocetakTure = pocetakTure;
-        ZavrsetakTure = zavrsetakTure;
-        TrajanjeTure = trajanjeTure;
-        BrojMjesta = brojMjesta;
-        BrojPopunjenihMjesta = brojPopunjenihMjesta;
+    public Tura(Long id, String pocetakTure, String zavrsetakTure, String trajanjeTure, Long brojMjesta, Long brojPopunjenihMjesta) {
+        this.id=id;
+        this.pocetakTure = pocetakTure;
+        this.zavrsetakTure = zavrsetakTure;
+        this.trajanjeTure = trajanjeTure;
+        this.brojMjesta = brojMjesta;
+        this.brojPopunjenihMjesta = brojPopunjenihMjesta;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Date getPocetakTure() {
-        return PocetakTure;
+    public String getPocetakTure() {
+        return pocetakTure;
     }
 
-    public void setPocetakTure(Date pocetakTure) {
-        PocetakTure = pocetakTure;
+    public void setPocetakTure(String pocetakTure) {
+        this.pocetakTure = pocetakTure;
     }
 
-    public Date getZavrsetakTure() {
-        return ZavrsetakTure;
+    public String getZavrsetakTure() {
+        return zavrsetakTure;
     }
 
-    public void setZavrsetakTure(Date zavrsetakTure) {
-        ZavrsetakTure = zavrsetakTure;
+    public void setZavrsetakTure(String zavrsetakTure) {
+        this.zavrsetakTure = zavrsetakTure;
     }
 
-    public Boolean getTrajanjeTure() {
-        return TrajanjeTure;
+    public String getTrajanjeTure() {
+        return trajanjeTure;
     }
 
-    public void setTrajanjeTure(Boolean trajanjeTure) {
-        TrajanjeTure = trajanjeTure;
+    public void setTrajanjeTure(String trajanjeTure) {
+        this.trajanjeTure = trajanjeTure;
     }
 
     public Long getBrojMjesta() {
-        return BrojMjesta;
+        return brojMjesta;
     }
 
     public void setBrojMjesta(Long brojMjesta) {
-        BrojMjesta = brojMjesta;
+        this.brojMjesta = brojMjesta;
     }
 
     public Long getBrojPopunjenihMjesta() {
-        return BrojPopunjenihMjesta;
+        return brojPopunjenihMjesta;
     }
 
     public void setBrojPopunjenihMjesta(Long brojPopunjenihMjesta) {
-        BrojPopunjenihMjesta = brojPopunjenihMjesta;
+        this.brojPopunjenihMjesta = brojPopunjenihMjesta;
     }
     @OneToMany(mappedBy = "tura")
     private List<BookingLogs> bookingLogs=new ArrayList<>();
