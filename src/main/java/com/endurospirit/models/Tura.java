@@ -13,18 +13,19 @@ import java.util.List;
 public class Tura {
     @Id
     @GeneratedValue
-    private Long ID;
+    private Long id;
 
-    String pocetakTure;
-    String zavrsetakTure;
-    String trajanjeTure;
-    Long brojMjesta;
-    Long brojPopunjenihMjesta;
+    Date PocetakTure;
+    Date ZavrsetakTure;
+    Boolean TrajanjeTure;
+    Long BrojMjesta;
+    Long BrojPopunjenihMjesta;
 
     public Tura() {
     }
 
-    public Tura(String pocetakTure, String zavrsetakTure, String trajanjeTure, Long brojMjesta, Long brojPopunjenihMjesta) {
+    public Tura(Long id, String pocetakTure, String zavrsetakTure, String trajanjeTure, Long brojMjesta, Long brojPopunjenihMjesta) {
+        this.id=id;
         this.pocetakTure = pocetakTure;
         this.zavrsetakTure = zavrsetakTure;
         this.trajanjeTure = trajanjeTure;
@@ -32,12 +33,12 @@ public class Tura {
         this.brojPopunjenihMjesta = brojPopunjenihMjesta;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPocetakTure() {
