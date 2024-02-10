@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naslovna stranica</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            overflow: auto;
+            margin: 0;
+            background-color: #232323;
+            color: white;
+            font-family: Arial;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 130px;
+            width: 100%;
+            background-color: black;
+        }
+
+        #logo {
+            margin-left: 2%;
+            width: 10%;
+            height: auto;
+            max-height: 100px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+        }
+
+        nav li {
+            margin-right: 60px;
+        }
+
+        nav ul li a {
+            color: #9c261e;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        #linija
+        {
+            width: 100%;
+            margin-top: 5%;
+            height: 30%;
+            border-top: 5px solid rgba(255, 255, 255, 0.3);
+            line-height: 22px;
+            padding: 150px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+
+        #sloj1
+        {
+            width: 30%;
+            height: 40px;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        #sloj2
+        {
+            width: 30%;
+            height: 40px;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        #sloj3
+        {
+            width: 30%;
+            height: 40px;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        footer
+        {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+        }
+
+        h2 {
+            font-size: 1.0em;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 0.8em;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        hr
+        {
+            width: 20%;
+            margin-left: 0%;
+        }
+
+        table {
+            width: 80%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        table td {
+            width: 25%;
+            padding: 10px;
+        }
+
+        table tr {
+            width: 25%;
+            padding: 10px;
+        }
+
+        table img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        a:active
+        {
+            color: #9c261e;
+        }
+
+        @media (max-width: 576px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: 220vh;
+                margin: 0;
+                background-color: #232323;
+                color: white;
+                font-family: Arial;
+            }
+
+            #logo {
+                margin-left: 10px;
+                width: 140px;
+                height: auto;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 130px;
+                width: 100%;
+                background-color: black;
+            }
+            nav ul li a
+            {
+                display: flex;
+                list-style: none;
+                text-decoration: none;
+            }
+            h2 {
+                font-size: 1.0em;
+                text-align: left;
+            }
+
+            h4 {
+                font-size: 0.8em;
+                text-align: left;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                text-align: left;
+            }
+
+            #header1 {
+                display: none;
+            }
+
+
+            #linija {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #sloj1,
+            #sloj2,
+            #sloj3 {
+                width: 80%;
+                margin-top: 20px;
+                text-align: left;
+            }
+            #sloj2 {
+                margin-top: 100px;
+            }
+            #sloj3 {
+                margin-top: 140px;
+            }
+
+        }
+        @media (min-width: 992px)
+        {
+            #logo
+            {
+
+                max-width: 100%;
+                height: auto;
+
+            }
+        }
+
+        @media (max-width: 1090px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: 220vh;
+                margin: 0;
+                background-color: #232323;
+                color: white;
+                font-family: Arial;
+            }
+
+            #logo {
+                margin-left: 10px;
+                width: 140px;
+                height: auto;
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 130px;
+                width: 100%;
+                background-color: black;
+            }
+
+            h2 {
+                font-size: 1.0em;
+                text-align: left;
+            }
+
+            h4 {
+                font-size: 0.8em;
+                text-align: left;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                text-align: left;
+            }
+            hr
+            {
+                width: 20%;
+                margin-left: 0%;
+            }
+
+            #header1 {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div id="logo">
+        <img src="endurologo.png" style="max-width:100%; height:auto;">
+    </div>
+    <div id="header1">
+        <nav>
+            <ul>
+                <li>O NAMA</li>
+                <li>SERVISI</li>
+                <li>HARD ENDURO</li>
+                <li>TRAVEL ENDURO</li>
+                <li>GALERIJA</li>
+                <li>DOJMOVI</li>
+                <li>FAQ</li>
+            </ul>
+        </nav>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="login.html">Prijavi se</a></li>
+            <li><a href="register.html">Registriraj se</a></li>
+        </ul>
+    </nav>
+</header>
+<h1>LET YOUR SPIRIT FREE...</h1>
+<img src="enduro1.jpg" width="100%" height="auto">
+<br>
+<h1>OTHERS ABOUT US</h1>
+<br>
+<table>
+    <tr>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/erjeDkdX9lE" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/VdzqVPN6erg" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/GNP0UTSWzQk" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/_TPIzuEOydQ" style="border: none;"></iframe></td>
+    </tr>
+    <tr>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/Koy4-nm13gA" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/xVTKAzRlQ2k" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/8pYqIzlc9Zw" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/Jk0-16ggcwU" style="border: none;"></iframe></td>
+    </tr>
+    <tr>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/_tUB90yE1OQ" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/KYQ58t20lC4" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/WRFtBnV9nFI" style="border: none;"></iframe></td>
+        <td><iframe width="100%" src="https://www.youtube.com/embed/Dboq9dZFAFA" style="border: none;"></iframe></td>
+    </tr>
+</table>
+<div id="linija">
+    <div id="sloj1">
+        <h3 style="color: #9c261e">ENDURO SPIRIT</h3>
+        <hr>
+        <h4>MOTO SPIRIT - MOTO DUH DOO <br>
+            ID: 4567834501 <br>
+            PDV ID: 1234569501
+        </h4>
+    </div>
+    <div id="sloj2">
+        <h3 style="color: #9c261e">ADRESA</h3>
+        <hr>
+        <h4>Vrbaska bb,<br>
+            70280 Gornji Vakuf – Uskoplje<br>
+            Bosna i Hercegovina
+        </h4>
+    </div>
+    <div id="sloj3">
+        <h3 style="color: #9c261e">KONTAKT</h3>
+        <hr>
+        <h4>Telefon: +387 63 123 456 <br>
+            Email:
+            endurospirit@gmail.com
+        </h4>
+    </div>
+</div>
+<footer>
+    <h5 style="text-align: center; font-family: sans-serif">Designed by: Karla Fišić, Marijana Bandić and Mila Matijević</h5>
+</footer>
+</body>
+
+</html>
