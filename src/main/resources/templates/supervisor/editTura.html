@@ -15,6 +15,7 @@
             margin: 0;
             background-color: #232323;
         }
+
         #logo {
             margin-top: 50px;
             width: 161px;
@@ -50,6 +51,7 @@
             font-family: sans-serif;
             color: #4d4b4b;
         }
+
         input {
             background-color: #1a1a1a;
             color: #fff;
@@ -57,6 +59,7 @@
             padding: 10px;
             width: 100%;
         }
+
         button {
             background-color: #de2c26;
             color: #fff;
@@ -129,6 +132,7 @@
                 width: 100%;
             }
         }
+
         @media (max-width: 600px) {
             .input-group {
                 width: 100%;
@@ -145,6 +149,8 @@
                 width: 20%;
             }
         }
+
+
         @media (min-width: 768px) {
             #logo
             {
@@ -156,6 +162,8 @@
                 max-width: 80%;
             }
         }
+
+
         @media (min-width: 992px) {
             #logo
             {
@@ -167,6 +175,8 @@
                 max-width: 60%;
             }
         }
+
+
         @media (min-width: 1200px) {
             #logo {
                 max-width: 50%;
@@ -176,6 +186,7 @@
                 max-width: 50%;
             }
         }
+
     </style>
 </head>
 
@@ -187,7 +198,7 @@
     <img th:src="@{/WebLogo.png}" style="max-width:100%; height:auto;">
 </div>
 
-<form id="login" th:action="@{/supervisor/PodaciOTuri}" method="post" th:object="${tura}">
+<form id="login" th:object="${tura}" th:action="@{'/supervisor/listTura/edit/' + ${tura.id}}" method="post">
     <h1>Nova tura</h1>
     <div class="input-group">
         <label for="trajanjeTure">Odaberite željenu turu:</label>
@@ -211,9 +222,14 @@
         <input type="date" id="zavrsetakTure" class="input" placeholder="Please enter your name"  th:field="*{zavrsetakTure}"/>
         <div class="warning" th:if="${#fields.hasErrors('zavrsetakTure')}" th:errors="*{zavrsetakTure}"></div>
 
-        <div class="button">
-            <button type="submit">Spremi turu</button>
-            <br></div>
+        <div class="button-group">
+            <div class="button">
+                <button type="submit">Spremi turu</button>
+            </div>
+            <div class="button">
+                <button type="button" onclick="location.href='/supervisor/listTura'">Odustani</button>
+            </div>
+        </div>
     </div>
 </form>
 

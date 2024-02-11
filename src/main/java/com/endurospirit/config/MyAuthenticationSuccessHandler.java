@@ -1,5 +1,6 @@
 package com.endurospirit.config;
 
+import com.endurospirit.models.KorisnikDetails;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,8 +17,13 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         if(authorities.stream().anyMatch(a ->a.getAuthority().equals("ADMIN"))){
             response.sendRedirect("/users");
         }else if(authorities.stream().anyMatch(a -> a.getAuthority().equals("SUPERVISOR"))){
-            response.sendRedirect("/supervisor/PodaciOTuri");
+            response.sendRedirect("/supervisor/listTura");
         }else if(authorities.stream().anyMatch(a -> a.getAuthority().equals("DRIVER"))){
+            if (authentication.getPrincipal() instanceof KorisnikDetails) {
+                KorisnikDetails korisnikDetails = (KorisnikDetails) authentication.getPrincipal();
+                // Dodaj korisnika u sesiju
+                request.getSession().setAttribute("korisnikDetails", korisnikDetails);
+            }
             response.sendRedirect("/driver/rezervacija");
         }else{
             response.sendRedirect("/login");

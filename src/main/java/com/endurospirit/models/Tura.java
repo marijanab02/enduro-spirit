@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,11 +17,18 @@ public class Tura {
     @GeneratedValue
     private Long id;
 
-    Date PocetakTure;
-    Date ZavrsetakTure;
-    Boolean TrajanjeTure;
-    Long BrojMjesta;
-    Long BrojPopunjenihMjesta;
+    @NotBlank(message="Polje pocetak ture je obavezno")
+    String pocetakTure;
+
+    @NotBlank(message="Polje zavrsetak ture je obavezno")
+    String zavrsetakTure;
+
+    @NotBlank(message="Polje trajanje ture je obavezno")
+    String trajanjeTure;
+
+    @NotNull(message="Polje broj mjesta je obavezno")
+    Long brojMjesta;
+    Long brojPopunjenihMjesta;
 
     public Tura() {
     }

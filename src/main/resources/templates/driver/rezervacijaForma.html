@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Form</title>
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #232323;
+        }
+        header
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 130px;
+            width: 100%;
+            background-color: black;
+        }
+        #header1
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 130px;
+            width: 100%;
+            background-color: black;
+        }
+        #logo
+        {
+            margin-left: 90px;
+            width: 140px;
+            height: auto;
+            max-height: 100px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+        }
+
+        nav li {
+            margin-right: 90px;
+        }
+        h2 {
+            font-size: 1.0em;
+            text-align: center;
+        }
+        #login {
+            margin-top: 50px;
+            width: 80%;
+            max-width: 600px;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        select {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+        }
+        .input-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            font-family: sans-serif;
+            color: #4d4b4b;
+        }
+        input {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+        }
+        button {
+            background-color: #de2c26;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 130%;
+            height: 55%;
+            margin-top: 25px;
+            box-shadow: none;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        #login
+        {
+            height: auto;
+        }
+        h1 {
+            color: #de2c26;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        button:hover{
+            background-color: #e44d26;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        @media (min-width: 576px) {
+            #logo
+            {
+                max-width: 100%;
+            }
+
+            #login
+            {
+                max-width: 100%;
+            }
+
+            .input-group
+            {
+                width: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            .input-group {
+                width: 100%;
+                margin-right: 10px;
+            }
+            .button {
+                width: 25%;
+                max-width: none;
+                margin-top: 10px;
+                font-size: 3vw;
+            }
+            #odjava button{
+
+                width: 20%;
+            }
+        }
+        @media (min-width: 768px) {
+            #logo
+            {
+                max-width: 80%;
+            }
+
+            #login
+            {
+                max-width: 80%;
+            }
+        }
+        @media (min-width: 992px) {
+            #logo
+            {
+                max-width: 60%;
+            }
+
+            #login
+            {
+                max-width: 60%;
+            }
+        }
+        @media (min-width: 1200px) {
+            #logo {
+                max-width: 50%;
+            }
+
+            #login {
+                max-width: 50%;
+            }
+        }
+        .input-group label {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group label input[type="checkbox"] {
+            margin-right: 60%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4d4b4b;
+            border-radius: 3px;
+            background-color: #1a1a1a;
+            cursor: pointer;
+        }
+        .warning{
+            color: red;
+        }
+    </style>
+</head>
+<body bgcolor="#232323" vlink="#9c261e" alink="#9c261e">
+<header>
+    <div id="logo">
+        <img th:src="@{/WebLogo.png}" style="max-width:100%; height:auto;">
+    </div>
+    <div id="header1">
+        <nav>
+            <ul>
+                <li>O NAMA</li>
+                <li>SERVISI</li>
+                <li>HARD ENDURO</li>
+                <li>TRAVEL ENDURO</li>
+                <li>GALERIJA</li>
+                <li>DOJMOVI</li>
+                <li>FAQ</li>
+                <li>
+                    <form th:action="@{/logout}" method="post" id="odjava">
+                        <button type="submit">Odjavi se</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<form id="login" th:action="@{'/driver/rezervacija/' + ${tura.id} + '/rezervacijaForma'}"
+      th:object="${bookingLogs}" method="post">
+    <h1>Rezervacija ture s ID-jem: <span th:text="${tura?.id}"></span></h1>
+    <div class="input-group">
+        <label for="datumiVrijeme">Unesite datum dolaska </label>
+        <input type="date" id="datumiVrijeme" class="input" th:field="*{datumiVrijeme}" />
+        <div class="warning" th:if="${#fields.hasErrors('datumiVrijeme')}" th:errors="*{datumiVrijeme}"></div>
+
+        <label for="nacinDolaska">Unesite nacin dolaska</label>
+        <input type="text" id="nacinDolaska" class="input" th:field="*{nacinDolaska}" />
+        <div class="warning" th:if="${#fields.hasErrors('nacinDolaska')}" th:errors="*{nacinDolaska}"></div>
+
+        <label for="poruka">Napomena</label>
+        <input type="text" id="poruka" class="input" th:field="*{poruka}" />
+        </br></br>
+
+        <label for="trebamMotocikl">
+            Trebam motocikl&nbsp&nbsp&nbsp
+            <input type="checkbox" id="trebamMotocikl" class="input" th:field="*{trebamMotocikl}" />
+        </label>
+        <div class="warning" th:if="${#fields.hasErrors('trebamMotocikl')}" th:errors="*{trebamMotocikl}"></div>
+        </br>
+
+        <label for="trebamOpremu">
+            Trebam opremu&nbsp&nbsp&nbsp&nbsp
+            <input type="checkbox" id="trebamOpremu" class="input" th:field="*{trebamOpremu}" />
+
+        </label>
+
+        <div class="button-group">
+            <div class="button">
+                <button type="submit">Rezerviraj turu</button>
+            </div>
+            <div class="button">
+                <button type="button" onclick="location.href='/driver/rezervacija'">Odustani</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<!-- Add your footer or other content here -->
+</body>
+</html>

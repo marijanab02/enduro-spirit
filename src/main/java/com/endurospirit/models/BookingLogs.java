@@ -1,6 +1,8 @@
 package com.endurospirit.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 
@@ -8,38 +10,41 @@ import java.util.Date;
 public class BookingLogs {
     @Id
     @GeneratedValue
-    private Long ID;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "koisnik_id")
     private Korisnik korisnik;
     @ManyToOne
     @JoinColumn(name = "tura_id")
     private Tura tura;
-    Date DatumiVrijeme;
-    Boolean TipTure;
-    String NacinDolaska;
-    Boolean TrebamMotocikl;
-    Boolean TrebamOpremu;
-    String Poruka;
+    @NotBlank(message="Polje datum dolaska je obavezno")
+    String datumiVrijeme;
+    @NotBlank(message="Polje nacin dolaska ture je obavezno")
+    String nacinDolaska;
+    @NotNull(message="Polje je obavezno")
+    Boolean trebamMotocikl;
+    @NotNull(message="Polje je obavezno")
+    Boolean trebamOpremu;
+    String poruka;
 
     public BookingLogs() {
     }
 
-    public BookingLogs(Date datumiVrijeme, Boolean tipTure, String nacinDolaska, Boolean trebamMotocikl, Boolean trebamOpremu, String poruka) {
-        DatumiVrijeme = datumiVrijeme;
-        TipTure = tipTure;
-        NacinDolaska = nacinDolaska;
-        TrebamMotocikl = trebamMotocikl;
-        TrebamOpremu = trebamOpremu;
-        Poruka = poruka;
+    public BookingLogs(Long id, String datumiVrijeme, String nacinDolaska, Boolean trebamMotocikl, Boolean trebamOpremu, String poruka) {
+        this.datumiVrijeme = datumiVrijeme;
+        this.nacinDolaska = nacinDolaska;
+        this.trebamMotocikl = trebamMotocikl;
+        this.trebamOpremu = trebamOpremu;
+        this.poruka = poruka;
+        this.id = id;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Korisnik getKorisnik() {
@@ -58,51 +63,43 @@ public class BookingLogs {
         this.tura = tura;
     }
 
-    public Date getDatumiVrijeme() {
-        return DatumiVrijeme;
+    public String getDatumiVrijeme() {
+        return datumiVrijeme;
     }
 
-    public void setDatumiVrijeme(Date datumiVrijeme) {
-        DatumiVrijeme = datumiVrijeme;
-    }
-
-    public Boolean getTipTure() {
-        return TipTure;
-    }
-
-    public void setTipTure(Boolean tipTure) {
-        TipTure = tipTure;
+    public void setDatumiVrijeme(String datumiVrijeme) {
+        this.datumiVrijeme = datumiVrijeme;
     }
 
     public String getNacinDolaska() {
-        return NacinDolaska;
+        return nacinDolaska;
     }
 
     public void setNacinDolaska(String nacinDolaska) {
-        NacinDolaska = nacinDolaska;
+        this.nacinDolaska = nacinDolaska;
     }
 
     public Boolean getTrebamMotocikl() {
-        return TrebamMotocikl;
+        return trebamMotocikl;
     }
 
     public void setTrebamMotocikl(Boolean trebamMotocikl) {
-        TrebamMotocikl = trebamMotocikl;
+        this.trebamMotocikl = trebamMotocikl;
     }
 
     public Boolean getTrebamOpremu() {
-        return TrebamOpremu;
+        return trebamOpremu;
     }
 
     public void setTrebamOpremu(Boolean trebamOpremu) {
-        TrebamOpremu = trebamOpremu;
+        this.trebamOpremu = trebamOpremu;
     }
 
     public String getPoruka() {
-        return Poruka;
+        return poruka;
     }
 
     public void setPoruka(String poruka) {
-        Poruka = poruka;
+        this.poruka = poruka;
     }
 }

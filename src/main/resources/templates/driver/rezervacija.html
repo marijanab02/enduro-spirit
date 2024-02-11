@@ -183,7 +183,22 @@
             font-size: 2em;
             text-align: center;
         }
+        button{
+            background-color: #d62e29;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 2px 2px 2px 2px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease-in-out;
+        }
 
+        button:hover {
+            background-color: #c53719;
+        }
         @media (max-width: 576px)
         {
             body
@@ -308,10 +323,10 @@
             background-color: #d62e29;
             color: white;
             padding: 8px; /* Adjust padding */
+            border-radius: 10px;
             cursor: pointer;
             box-sizing: border-box; /* Include padding in the button's full width */
         }
-
         /* Responsive styles for the table */
         @media (max-width: 576px) {
             table {
@@ -427,6 +442,9 @@
             }
 
         }
+        tr:hover {
+            background-color: #1a1a1a;
+        }
     </style>
 </head>
 
@@ -445,6 +463,11 @@
                 <li>GALERIJA</li>
                 <li>DOJMOVI</li>
                 <li>FAQ</li>
+                <li>
+                    <form th:action="@{/logout}" method="post" id="odjava">
+                        <button type="submit">Odjavi se</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </div>
@@ -529,6 +552,10 @@
     <h3 style="color: white; font-size: 17px;">S vlastitim motociklom</h3>
     <h3 style="color: #22a8f5; font-size: 27px;">1640KM</h3>
 </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h3>Provjeri svoje rezervacije</h3>
+<form th:action="@{'/driver/mojeRezervacije'}" method="get">
+    <button type="submit">Moje rezervacije</button>
+</form></br></br></br></br>
 <h2 style="font-size: 28px;">Kalendar tura za 2024. godinu</h2>
 <h2 style="color: #d62e29; font-size: 28px;">Predloženi termini</h2>
 
@@ -548,10 +575,14 @@
         <td th:text="${tura.pocetakTure}">Pocetak</td>
         <td th:text="${tura.zavrsetakTure}">Zavrsetak</td>
         <td th:text="${tura.trajanjeTure}">Trajanje</td>
-        <td><input type="submit" value="Rezerviraj"></td><br>
+        <td>
+            <form th:action="@{'/driver/rezervacija/' + ${tura.id} + '/rezervacijaForma'}" method="get">
+                <button type="submit">Rezerviraj</button>
+            </form> </td><br>
 
     </tr>
     </tbody>
+
 </table>
 </body>
 </html>
