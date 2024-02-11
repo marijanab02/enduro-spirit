@@ -96,4 +96,14 @@ public class KorisnikController {
         korisnikRepository.save(existingUser);
         return "redirect:/users";
     }
+
+    @GetMapping("/supervisor/viewReservations/{userId}")
+    @PreAuthorize("hasAuthority('SUPERVISOR')")
+    public String viewUserDetails(@PathVariable Long userId, Model model) {
+        Korisnik korisnik = korisnikRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        model.addAttribute("korisnik", korisnik);
+        return "/supervisor/viewUserDetails";
+    }
 }

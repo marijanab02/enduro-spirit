@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje rezervacije</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            overflow: auto;
+            margin: 0;
+            background-color: #232323;
+            color: white;
+            font-family: Arial;
+        }
+        header
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 130px;
+            width: 100%;
+            background-color: black;
+        }
+        #header1
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 130px;
+            width: 100%;
+            background-color: black;
+        }
+        #logo
+        {
+            margin-left: 90px;
+            width: 140px;
+            height: auto;
+            max-height: 100px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+        }
+
+        nav li {
+            margin-right: 90px;
+        }
+        h2 {
+            font-size: 1.0em;
+            text-align: center;
+        }
+        table {
+            max-width: 800px;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: white;
+        }
+        thead {
+            background-color: #4d4b4b;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #969b9e;
+        }
+        button{
+            background-color: #d62e29;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #c53719;
+        }
+        tr:hover {
+            background-color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div id="logo">
+        <img th:src="@{/WebLogo.png}" style="max-width:100%; height:auto;">
+    </div>
+    <div id="header1">
+        <nav>
+            <ul>
+                <li>O NAMA</li>
+                <li>SERVISI</li>
+                <li>HARD ENDURO</li>
+                <li>TRAVEL ENDURO</li>
+                <li>GALERIJA</li>
+                <li>DOJMOVI</li>
+                <li>FAQ</li>
+                <li>
+                    <form th:action="@{/logout}" method="post" id="odjava">
+                        <button type="submit">Odjavi se</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h1>Informacije o korisniku s ID-jem <span th:text="${korisnik?.id}"></span></h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Adresa</th>
+        <th>Velicina kacige</th>
+        <th>Velicina odjece</th>
+        <th>Velicina obuce</th>
+        <th>Vozacke sposobnosti</th>
+        <th>Tezina</th>
+        <th>Visina</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${korisnik.ime}">Ime</td>
+        <td th:text="${korisnik.prezime}">Prezime</td>
+        <td th:text="${korisnik.email}">Email</td>
+        <td th:text="${korisnik.telefon}">Telefon</td>
+        <td th:text="${korisnik.adresa}">Adresa</td>
+        <td th:text="${korisnik.velicinaKacige}">Velicina kacige</td>
+        <td th:text="${korisnik.velicinaOdjece}">Velicina odjece</td>
+        <td th:text="${korisnik.velicinaObuce}">Velicina obuce</td>
+        <td th:text="${korisnik.vozackeSposobnosti}">Vozacke sposobnosti</td>
+        <td th:text="${korisnik.tezina}">Tezina</td>
+        <td th:text="${korisnik.visina}">Visina</td></tr>
+    </tbody>
+</table>
+</body>
+</html>
