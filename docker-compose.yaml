@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  ednevnik:
+  enduro.spirit:
     build: .
     container_name: enduro-spirit
     image: enduro-spirit:latest
