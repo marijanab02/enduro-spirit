@@ -27,7 +27,7 @@ public class SupervisorController {
         List<Tura> ture = turaRepo.findAll();
         model.addAttribute("ture", ture);
 
-        return "/supervisor/listTura";
+        return "supervisor/listTura";
     }
 
     @GetMapping("/supervisor/listTura/edit/{turaId}")
@@ -35,7 +35,7 @@ public class SupervisorController {
     public String editTura(@PathVariable Long turaId, Model model) {
         Tura tura = turaRepo.findById(turaId).orElseThrow(() -> new RuntimeException("Tour not found"));
         model.addAttribute("tura", tura);
-        return "/supervisor/editTura"; // Prilagodite naziv stranice
+        return "supervisor/editTura";
     }
 
     @PostMapping("/supervisor/listTura/edit/{turaId}")
@@ -43,7 +43,7 @@ public class SupervisorController {
     public String updateTura(@PathVariable Long turaId,@ModelAttribute @Valid Tura updatedTura, BindingResult result, Model model) {
         if (result.hasErrors()) {
 
-            return "/supervisor/editTura"; // Prilagodite naziv stranice
+            return "supervisor/editTura"; // Prilagodite naziv stranice
         }
 
         Tura existingTura = turaRepo.findById(turaId).orElseThrow(() -> new RuntimeException("Tour not found"));
@@ -75,6 +75,6 @@ public class SupervisorController {
         List<BookingLogs> reservations = bookingRepo.findByTura(tura);
         model.addAttribute("tura", tura);
         model.addAttribute("reservations", reservations);
-        return "/supervisor/viewReservations"; // Prilagodite naziv stranice
+        return "supervisor/viewReservations"; // Prilagodite naziv stranice
     }
 }

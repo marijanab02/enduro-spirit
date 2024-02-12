@@ -31,7 +31,7 @@ public class TuraController {
     public String addTura (Model model){
         Tura tura = new Tura();
         model.addAttribute("tura", tura);
-        return "/supervisor/PodaciOTuri";
+        return "supervisor/PodaciOTuri";
     }
 
     @PostMapping("/supervisor/PodaciOTuri")
@@ -39,7 +39,7 @@ public class TuraController {
         boolean errors=result.hasErrors();
         if(errors) {
             model.addAttribute("tura", tura);
-            return "/supervisor/PodaciOTuri";
+            return "supervisor/PodaciOTuri";
         }else {
             tura.setBrojPopunjenihMjesta(0L);
             turaRepo.save(tura);

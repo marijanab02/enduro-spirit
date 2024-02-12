@@ -106,6 +106,6 @@ public class KorisnikController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         model.addAttribute("korisnik", korisnik);
-        return "/supervisor/viewUserDetails";
+        return "supervisor/viewUserDetails";
     }
 }
