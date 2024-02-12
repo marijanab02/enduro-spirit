@@ -1,6 +1,7 @@
 package com.endurospirit.controllers;
 
 import com.endurospirit.models.Korisnik;
+import com.endurospirit.models.Role;
 import com.endurospirit.models.Tura;
 import com.endurospirit.repositories.KorisnikRepository;
 import jakarta.validation.Valid;
@@ -11,6 +12,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.Collections;
+import java.util.HashSet;
 
 @Controller
 public class AuthController {
@@ -34,6 +38,7 @@ public class AuthController {
             String passwordEncoded=encoder.encode(korisnik.getLozinka());
             korisnik.setLozinka(passwordEncoded);
             korisnik.setPotvrdaLozinke(passwordEncoded);
+            korisnik.getRoles().add(Role.DRIVER);
             korisnikRepo.save(korisnik);
             return "redirect:/auth/login";
         }
@@ -45,5 +50,9 @@ public class AuthController {
         return "users/login";
     }
 
+    @GetMapping("/auth/home")
+    public String home() {
+        return "users/home";
+    }
 
 }

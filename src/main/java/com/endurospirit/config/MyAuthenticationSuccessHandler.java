@@ -13,7 +13,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         var authorities=authentication.getAuthorities();
-
+        System.out.println("Authorities: " + authorities);
         if(authorities.stream().anyMatch(a ->a.getAuthority().equals("ADMIN"))){
             response.sendRedirect("/users");
         }else if(authorities.stream().anyMatch(a -> a.getAuthority().equals("SUPERVISOR"))){
@@ -26,7 +26,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
             }
             response.sendRedirect("/driver/rezervacija");
         }else{
-            response.sendRedirect("/login");
+            response.sendRedirect("/auth/home");
         }
 
     }

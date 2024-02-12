@@ -23,7 +23,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 130px;
+            height: 150px;
             width: 100%;
             background-color: black;
         }
@@ -31,6 +31,7 @@
         #logo {
             margin-left: 2%;
             width: 10%;
+            margin-bottom: 50px;
             height: auto;
             max-height: 100px;
         }
@@ -75,6 +76,7 @@
 
         #sloj1
         {
+            margin-left:15%;
             width: 30%;
             height: 40px;
             flex-direction: column;
@@ -211,6 +213,10 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+
+            }
+            #sloj1{
+                margin-left:0;
             }
             #sloj1,
             #sloj2,
@@ -289,6 +295,24 @@
             #header1 {
                 display: none;
             }
+            #sloj1{
+                margin-left: 10%;
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+        h4 a {
+            color: white;
+        }
+        h4 a:visited {
+            color: white;
+        }
+        h4 a:hover {
+            color: #9c261e;
+        }
+        h4 a:active {
+            color: coral;
         }
     </style>
 </head>
@@ -296,7 +320,7 @@
 <body>
 <header>
     <div id="logo">
-        <img src="endurologo.png" style="max-width:100%; height:auto;">
+        <img th:src="@{/WebLogo.png}" style="max-width:100%; height:auto;">
     </div>
     <div id="header1">
         <nav>
@@ -313,34 +337,58 @@
     </div>
     <nav>
         <ul>
-            <li><a href="login.html">Prijavi se</a></li>
-            <li><a href="register.html">Registriraj se</a></li>
+            <li><a href="/auth/login">Prijavi se</a></li>
+            <li><a href="/auth/register">Registriraj se</a></li>
         </ul>
     </nav>
 </header>
 <h1>LET YOUR SPIRIT FREE...</h1>
-<img src="enduro1.jpg" width="100%" height="auto">
+<img th:src="@{/enduro1.jpg}" width="100%" height="auto">
 <br>
-<h1>OTHERS ABOUT US</h1>
+<h1>O NAMA</h1>
 <br>
 <table>
     <tr>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/erjeDkdX9lE" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/VdzqVPN6erg" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/GNP0UTSWzQk" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/_TPIzuEOydQ" style="border: none;"></iframe></td>
+        <td><a href="https://www.youtube.com/watch?v=erjeDkdX9lE" target="_blank">
+            <img src="https://img.youtube.com/vi/erjeDkdX9lE/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=VdzqVPN6erg" target="_blank">
+            <img src="https://img.youtube.com/vi/VdzqVPN6erg/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=GNP0UTSWzQk" target="_blank">
+            <img src="https://img.youtube.com/vi/GNP0UTSWzQk/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=_TPIzuEOydQ" target="_blank">
+            <img src="https://img.youtube.com/vi/_TPIzuEOydQ/0.jpg" alt="Video 1">
+        </a></td>
     </tr>
     <tr>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/Koy4-nm13gA" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/xVTKAzRlQ2k" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/8pYqIzlc9Zw" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/Jk0-16ggcwU" style="border: none;"></iframe></td>
+        <td><a href="https://www.youtube.com/watch?v=Koy4-nm13gA" target="_blank">
+            <img src="https://img.youtube.com/vi/Koy4-nm13gA/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=xVTKAzRlQ2k" target="_blank">
+            <img src="https://img.youtube.com/vi/xVTKAzRlQ2k/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=8pYqIzlc9Zw" target="_blank">
+            <img src="https://img.youtube.com/vi/8pYqIzlc9Zw/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=Jk0-16ggcwUw" target="_blank">
+            <img src="https://img.youtube.com/vi/Jk0-16ggcwU/0.jpg" alt="Video 1">
+        </a></td>
     </tr>
     <tr>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/_tUB90yE1OQ" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/KYQ58t20lC4" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/WRFtBnV9nFI" style="border: none;"></iframe></td>
-        <td><iframe width="100%" src="https://www.youtube.com/embed/Dboq9dZFAFA" style="border: none;"></iframe></td>
+        <td><a href="https://www.youtube.com/watch?v=_tUB90yE1OQ" target="_blank">
+            <img src="https://img.youtube.com/vi/_tUB90yE1OQ/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=KYQ58t20lC4" target="_blank">
+            <img src="https://img.youtube.com/vi/KYQ58t20lC4/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=WRFtBnV9nFI" target="_blank">
+            <img src="https://img.youtube.com/vi/WRFtBnV9nFI/0.jpg" alt="Video 1">
+        </a></td>
+        <td><a href="https://www.youtube.com/watch?v=Dboq9dZFAFA" target="_blank">
+            <img src="https://img.youtube.com/vi/Dboq9dZFAFA/0.jpg" alt="Video 1">
+        </a></td>
     </tr>
 </table>
 <div id="linija">
@@ -363,9 +411,9 @@
     <div id="sloj3">
         <h3 style="color: #9c261e">KONTAKT</h3>
         <hr>
-        <h4>Telefon: +387 63 123 456 <br>
-            Email:
-            endurospirit@gmail.com
+        <h4 ><a href="mailto:mila.matijevic@fsre.sum.ba">mila.matijevic@fsre.sum.ba</a> <br>
+            <a href="mailto:karla.fisic@fsre.sum.ba">karla.fisic@fsre.sum.ba</a><br>
+            <a href="mailto:marijana.bandic@fsre.sum.ba">marijana.bandic@fsre.sum.ba</a>
         </h4>
     </div>
 </div>

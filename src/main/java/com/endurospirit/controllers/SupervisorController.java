@@ -42,7 +42,6 @@ public class SupervisorController {
     @PreAuthorize("hasAuthority('SUPERVISOR')")
     public String updateTura(@PathVariable Long turaId,@ModelAttribute @Valid Tura updatedTura, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            // Ako postoje greške, vraćamo na formu za uređivanje
 
             return "/supervisor/editTura"; // Prilagodite naziv stranice
         }
@@ -64,8 +63,6 @@ public class SupervisorController {
     @PreAuthorize("hasAuthority('SUPERVISOR')")
     public String deleteTura(@PathVariable Long turaId) {
         Tura tura = turaRepo.findById(turaId).orElseThrow(() -> new RuntimeException("Tour not found"));
-
-        // Implementirajte dodatne provjere ili logiku prije brisanja
 
         turaRepo.deleteById(turaId);
         return "redirect:/supervisor/listTura";

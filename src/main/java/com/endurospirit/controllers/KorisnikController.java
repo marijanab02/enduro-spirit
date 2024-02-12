@@ -1,6 +1,7 @@
 package com.endurospirit.controllers;
 
 import com.endurospirit.models.Korisnik;
+import com.endurospirit.models.Role;
 import com.endurospirit.repositories.KorisnikRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,7 @@ public class KorisnikController {
             String passwordEncoded = encoder.encode(korisnik.getLozinka());
             korisnik.setLozinka(passwordEncoded);
             korisnik.setPotvrdaLozinke(passwordEncoded);
+
             korisnikRepository.save(korisnik);
             return "redirect:/users";
         }

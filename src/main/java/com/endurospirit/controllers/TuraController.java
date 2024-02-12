@@ -43,7 +43,7 @@ public class TuraController {
         }else {
             tura.setBrojPopunjenihMjesta(0L);
             turaRepo.save(tura);
-            return "redirect:/supervisor/PodaciOTuri";
+            return "redirect:/supervisor/listTura";
         }
     }
     @GetMapping("/driver/rezervacija")
@@ -55,9 +55,4 @@ public class TuraController {
         model.addAttribute("bookingLogs", new BookingLogs());
         return "driver/rezervacija";
     }
-
-    // Add a mapping to handle displaying the reservation form
-
-
-
 }

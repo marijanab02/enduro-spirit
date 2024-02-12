@@ -10,9 +10,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            height: 100vh;
+            height: 100%;
+            overflow: auto;
             margin: 0;
             background-color: #232323;
+            color: white;
+            font-family: Arial;
         }
         header
         {
@@ -95,18 +98,15 @@
             width: 100%;
         }
         button {
-            background-color: #de2c26;
+            background-color: #d62e29;
             color: #fff;
+            padding: 10px 20px;
             border: none;
-            padding: 10px;
-            width: 130%;
-            height: 55%;
-            margin-top: 25px;
-            box-shadow: none;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-sizing: border-box;
+            margin: 2px;
             cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: background-color 0.3s ease-in-out;
         }
         #login
@@ -203,6 +203,9 @@
             border-radius: 3px;
             background-color: #1a1a1a;
             cursor: pointer;
+        }
+        .warning{
+            color:red;
         }
     </style>
 </head>

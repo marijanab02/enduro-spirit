@@ -186,7 +186,9 @@
                 max-width: 50%;
             }
         }
-
+        .warning{
+            color:red;
+        }
     </style>
 </head>
 
@@ -202,7 +204,7 @@
     <h1>Nova tura</h1>
     <div class="input-group">
         <label for="trajanjeTure">Odaberite željenu turu:</label>
-        <select id="trajanjeTure" class="input" width="30%" placeholder="Please enter your name"  th:field="*{trajanjeTure}">
+        <select id="trajanjeTure" class="input" width="30%"  th:field="*{trajanjeTure}">
             <option value="5">5 dana putovanja</option>
             <option value="8">8 dana putovanja</option>
             <option value="5a">5 dana putovanja(sve uključeno)</option>
@@ -211,15 +213,15 @@
         <div class="warning" th:if="${#fields.hasErrors('trajanjeTure')}" th:errors="*{trajanjeTure}"></div>
 
         <label for="brojMjesta">Broj mjesta:</label>
-        <input type="number" id="brojMjesta" class="input" placeholder="Please enter your name"  th:field="*{brojMjesta}"/>
+        <input type="number" id="brojMjesta" class="input"  th:field="*{brojMjesta}"/>
         <div class="warning" th:if="${#fields.hasErrors('brojMjesta')}" th:errors="*{brojMjesta}"></div>
 
         <label for="pocetakTure">Početak ture:</label>
-        <input type="date" id="pocetakTure" class="input" placeholder="Please enter your name"  th:field="*{pocetakTure}"/>
+        <input type="date" id="pocetakTure" class="input" th:field="*{pocetakTure}"/>
         <div class="warning" th:if="${#fields.hasErrors('pocetakTure')}" th:errors="*{pocetakTure}"></div>
 
         <label for="zavrsetakTure">Završetak ture:</label>
-        <input type="date" id="zavrsetakTure" class="input" placeholder="Please enter your name"  th:field="*{zavrsetakTure}"/>
+        <input type="date" id="zavrsetakTure" class="input" th:field="*{zavrsetakTure}"/>
         <div class="warning" th:if="${#fields.hasErrors('zavrsetakTure')}" th:errors="*{zavrsetakTure}"></div>
 
         <div class="button-group">
